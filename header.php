@@ -3,7 +3,6 @@
     // Nav bar that gets included on all pages
     require_once('config.php');
         echo '
-            <body>
             <div class="web-nav-bar" >
                 <ul > 
                     <li style="width: 100px;"><a  id="Home" href="index.php"><i class="fa-solid fa-house"></i> Home<span>Go to the "Home" page</span></a></li>
