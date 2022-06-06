@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: arial;
+    background-image: url('background.jpg');
+    background-size: 100%
+}
+
+#MainHeading {
+    top: 60px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: arial;
+    width: 200px;
+    color: #ffdf00;
+}
+
+.playerButton{
+    background-color: #ffdf00;
+    color: rgb(0, 103, 71);
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px auto;
+}
+
+.playerButton:hover{
+    color: #ffdf00;
+    background-color: rgb(0, 103, 71);
+}
+
+h4 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#main {
+    font-family: Quicksand;
+    border: 5px solid grey;
+    background: white;
+    width: 70%;
+    margin: 25px auto;
+    padding: 10px 10px;
+    text-align: center;
+    box-shadow: -4px -3px 45px 21px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    width: 60%;
+    height: 60%;
+}
+
+#controls {
+    font-family: Quicksand;
+    border: 5px solid black;
+    background: grey;
+    width: 70%;
+    margin: 25px auto;
+    padding: 10px 10px;
+    text-align: center;
+    box-shadow: -4px -3px 45px 21px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    width: 60%;
+    height: 60%;
+}
+
+#controls input{
+    padding: 5px;
+    margin: 2px auto;
+    border-radius: 200px;
+}
+
+#main p {
+    text-align: left;
+
+}
+
+#myDIV {
+    text-align: center;
+    margin: auto;
+}
+
+#submitButton {
+    box-shadow: rgb(0, 0, 0);
+    position: relative;
+    left: 10px;
+}
+
+#submitButton {
+    background-color: white;
+    border: 0.5px solid black !important;
+}

@@ -1,0 +1,121 @@
+.footer-container {
+    background-color :  #212329;
+    padding : 4rem 0 8rem 0;
+    margin-top: 50px; 
+}
+
+.footer{
+    width: 80%;
+    flex-wrap: wrap;
+    color: #fff;
+    display: flex;
+    height: 40vh;
+    justify-content: center;
+    background-color :  #212329; 
+    margin: 0 auto;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+html{
+    font-size: 70%;
+}
+
+.footer-heading {
+    display: flex;
+    margin-right: 4rem;
+    flex-direction: column;
+}
+
+.footer p{
+    margin-bottom : 1rem;
+    margin-top: 1rem;
+}
+
+.footer h2 {
+    margin-bottom : 2rem;
+    color: #fff;   
+}
+
+.footer-heading a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 0.5rem;
+}
+
+.footer-heading a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.footer-email-form h2{
+    margin-bottom : 2rem;
+}
+
+#footer-email{
+    width: 250px;
+    height : 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#footer-email-btn{
+    height : 30px;
+    width : 100px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color :  #F94230;
+    color : #fff;
+    font-size : 1rem;
+}
+
+#footer-email-btn:hover{
+    cursor: pointer;
+    background-color : #337AF1;
+    transition: all 0.5s ease-out;
+}
+
+
+
+#footer-email::placeholder{
+    color: #b1b1b1;
+}
+
+
+@media screen and (max-width: 1150px) {
+    .footer{
+        height: 50vh;       
+    }
+
+    .footer-email-form{
+        margin-top: 4rem;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .footer{
+        padding-top: 2rem;       
+    }
+}
+    
+@media screen and (max-width: 720px) {
+    .footer-3{
+        display: none;      
+    }
+
+    .footer-email-form{
+        margin-top: 2rem;
+    }
+}
