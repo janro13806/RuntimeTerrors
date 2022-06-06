@@ -7,7 +7,7 @@ window.addEventListener("load", function(){
 
     //Only set the type
     const data = {
-        "type":"gTournament"
+        "type":"gTournaments"
     }
 
     sendRequest(data);
