@@ -1,0 +1,139 @@
+/* General h1 and body --------------------------------------------------------------------------*/
+h1 { font-size: 50px; margin-top: 0%;}
+body
+{
+   font: 20px Helvetica, sans-serif;
+   text-align: center;
+   color: black;
+   background-color: rgb(121, 118, 110);
+   margin: 0;
+}
+
+#mastersLogo{
+  max-height: 700px;
+}
+
+/* Practicals navigation bar --------------------------------------------------------------------------*/
+.nav-bar
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 96px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 37px;
+}
+.nav-bar li a
+{
+  display: block;
+  background-color: lightgray;
+  color: black;
+  width: 100%;
+  padding: 7px;
+  text-decoration: none;
+}
+
+.nav-bar li a:hover
+{
+  background-color: darkgray;
+  color: white;
+}
+.nav-bar li #Home
+{
+  background-color: rgb(0, 103, 71);
+  color: black;
+}
+.nav-bar a:hover span
+{
+  display: inline;
+}
+
+.nav-bar span
+{
+    display: none;
+    background-color: white;
+    color: black;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgb(66, 66, 66);
+}
+
+/* General links hovering --------------------------------------------------------------------------*/
+a:hover {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Top navigation bar = Today  South Africa  COVID-19 --------------------------------------------------------------------------*/
+.web-nav-bar{
+  width: 100%;
+  background-color: lightgray;
+  display: block;
+}
+.web-nav-bar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: lightgray;
+}
+.web-nav-bar li
+{
+  float: left;
+  width: fit-content;
+  text-align: center;
+  padding-right: 10px;
+}
+.web-nav-bar li a
+{
+  display: block;
+  background-color: lightgray;
+  color: black;
+  width: 100%;
+  padding: 7px;
+  text-decoration: none;
+}
+
+.web-nav-bar li a:hover
+{
+  background-color: darkgray;
+  color: white;
+}
+.web-nav-bar li #Home
+{
+  background-color: rgb(0, 103, 71);
+  color: black;
+}
+.web-nav-bar a:hover span
+{
+  display: inline;
+}
+
+.web-nav-bar span
+{
+    display: none;
+    background-color: white;
+    color: black;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgb(66, 66, 66);
+}
+
+
+  /* PAGE HEADERS */
+  h1 {
+    font-size: 50px;
+    margin-top: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* FILTER INFO */
+  #filter-info {
+    background-color: orchid;
+    /* position: absolute; */
+    /* display: none; */
+    color: black;
+    font-size: smaller;
+  }
