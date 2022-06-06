@@ -34,7 +34,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "age":updateInput,
-            "player_id": player_id
+            "player_id": idInput
         };
     }
     else
@@ -42,7 +42,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "weight":updateInput,
-            "player_id": player_id
+            "player_id": idInput
         };
     }
     
@@ -53,7 +53,7 @@ function deletePlayer()
 {
     const data = {
         "type":"dPlayer",
-        "player_id": player_id
+        "player_id": idInput
     };
 
     sendRequest(data); 
@@ -93,24 +93,24 @@ function displayTable(resBody)
     if (resData.success == "success")
     {
         //Parse the data part of the response object
-        var playersData = JSON.parse(resData.message);
+        var arrData = JSON.parse(resData.message);
 
         var tableText = "";
 
         //Loop through the array
-        for (let i = 0; i < playersData.length; i++) {
-            const player = playersData[i];
+        for (let i = 0; i < arrData.length; i++) {
+            const item = arrData[i];
 
             tableText += "<tr>";
 
-            tableText += "<td>" + player.player_id + "</td>";
-            tableText += "<td>" + player.rank + "</td>";  //Should probably add a table heading for the rank
-            tableText += "<td>" + player.name + "</td>";
-            tableText += "<td>" + player.surname + "</td>";
-            tableText += "<td>" + player.age + "</td>";
-            tableText += "<td>" + player.nationality + "</td>";
-            tableText += "<td>" + player.weight + "</td>";
-            tableText += "<td>" + player.height + "</td>";
+            tableText += "<td>" + item.player_id + "</td>";
+            tableText += "<td>" + item.rank + "</td>";  //Should probably add a table heading for the rank
+            tableText += "<td>" + item.name + "</td>";
+            tableText += "<td>" + item.surname + "</td>";
+            tableText += "<td>" + item.age + "</td>";
+            tableText += "<td>" + item.nationality + "</td>";
+            tableText += "<td>" + item.weight + "</td>";
+            tableText += "<td>" + item.height + "</td>";
 
             tableText += "</tr>";
         }
