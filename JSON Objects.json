@@ -31,5 +31,16 @@ PLAYER
     "weight":0
 }
 
+4. DELETE player
+
+{
+    "type":"",
+    "player_id":0
+}
+
+
+
+
+
 
 

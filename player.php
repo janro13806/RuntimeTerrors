@@ -38,6 +38,7 @@
       </form>
    </div>
 
+   <script src="JS/player.js"/></script>
    <?php include_once 'footer.php' ?>
 
 </body>
