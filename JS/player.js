@@ -1,6 +1,10 @@
-//Get all the components from the page
+//GET COMPONENTS FROM WITH DOM
+//Get the buttons
 var deleteBtn = document.getElementById("delete");
+deleteBtn.addEventListener("click", deletePlayer());
+
 var updateBtn = document.getElementById("update");
+deleteBtn.addEventListener("click", updatePlayer());
 
 //Get the inputs
 var idInput = document.getElementById("player_id");
@@ -42,6 +46,16 @@ function updatePlayer()
         };
     }
     
+    sendRequest(data); 
+}
+
+function deletePlayer()
+{
+    const data = {
+        "type":"dPlayer",
+        "player_id": player_id
+    };
+
     sendRequest(data); 
 }
 
