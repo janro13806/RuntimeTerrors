@@ -8,7 +8,7 @@ var updateInput = document.getElementById("update_value").value;
 var updateOption = document.getElementById("update_option");
 
 //Get the table
-var playersTable = document.getElementById("players");
+var playersTable = document.getElementById("dataTable");
 
 window.addEventListener("load", function(){
 
@@ -69,4 +69,19 @@ function sendRequest(data)
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
+}
+
+function displayTable(resBody)
+{
+    //Parse the response object
+    var resData = JSON.parse(resBody);
+
+    if (resData.success == "success")
+    {
+        //Parse the data part of the response object
+        var playersData = JSON.parse(resData.message);
+
+        //Loop through the array
+
+    }
 }
