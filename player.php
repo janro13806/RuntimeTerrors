@@ -19,6 +19,28 @@
    </div>
    <br><br><br>
    <div id="main">
+   <table id = "dataTable">
+      <tr>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Surname</th>
+         <th>Age</th>
+         <th>Nationality</th>
+         <th>Weight</th>
+         <th>Height</th>
+
+      </tr>
+      <tr>
+         <td>Alfreds Futterkiste</td>
+         <td>Maria Anders</td>
+         <td>Germany</td>
+      </tr>
+      <tr>
+         <td>Centro comercial Moctezuma</td>
+         <td>Francisco Chang</td>
+         <td>Mexico</td>
+      </tr>
+   </table> 
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
 
