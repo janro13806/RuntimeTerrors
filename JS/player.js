@@ -8,7 +8,7 @@ var updateInput = document.getElementById("update_value").value;
 var updateOption = document.getElementById("update_option");
 
 //Get the table
-var playersTable = document.getElementById("dataTable");
+var table = document.getElementById("dataTable");
 
 window.addEventListener("load", function(){
 
@@ -81,7 +81,30 @@ function displayTable(resBody)
         //Parse the data part of the response object
         var playersData = JSON.parse(resData.message);
 
-        //Loop through the array
+        var tableText = "";
 
+        //Loop through the array
+        for (let i = 0; i < playersData.length; i++) {
+            const player = playersData[i];
+
+            tableText += "<tr>";
+
+            tableText += "<td>" + player.player_id + "</td>";
+            tableText += "<td>" + player.rank + "</td>";  //Should probably add a table heading for the rank
+            tableText += "<td>" + player.name + "</td>";
+            tableText += "<td>" + player.surname + "</td>";
+            tableText += "<td>" + player.age + "</td>";
+            tableText += "<td>" + player.nationality + "</td>";
+            tableText += "<td>" + player.weight + "</td>";
+            tableText += "<td>" + player.height + "</td>";
+
+            tableText += "</tr>";
+        }
+
+        // tableText += "</table>";
+
+
+        //Add the contents to the table
+        table.innerHtml = tableText;
     }
 }
