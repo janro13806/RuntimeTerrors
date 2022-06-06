@@ -7,7 +7,7 @@ var updateBtn = document.getElementById("update");
 deleteBtn.addEventListener("click", updateCourse());
 
 //Get the inputs
-var idInput = document.getElementById("player_id").value;
+var idInput = document.getElementById("id_input").value;
 var updateInput = document.getElementById("update_value").value;
 var updateOption = document.getElementById("update_option");
 

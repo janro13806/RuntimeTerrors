@@ -7,7 +7,7 @@ var updateBtn = document.getElementById("update");
 deleteBtn.addEventListener("click", updatePlayer());
 
 //Get the inputs
-var idInput = document.getElementById("player_id");
+var idInput = document.getElementById("id_input");
 var updateInput = document.getElementById("update_value").value;
 var updateOption = document.getElementById("update_option");
 
@@ -34,7 +34,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "age":updateInput,
-            "player_id": idInput
+            "person_id": idInput
         };
     }
     else
@@ -42,7 +42,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "weight":updateInput,
-            "player_id": idInput
+            "person_id": idInput
         };
     }
     
@@ -53,10 +53,19 @@ function deletePlayer()
 {
     const data = {
         "type":"dPlayer",
-        "player_id": idInput
+        "person_id": idInput
     };
 
     sendRequest(data); 
+}
+
+function countPlayers()
+{
+    const data = {
+        "type":"cPlayers"
+    };
+
+    sendRequest(data);
 }
 
 
