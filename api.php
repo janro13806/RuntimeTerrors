@@ -21,6 +21,7 @@ function response($success, $message = "")
         private $type;
         private $userName;
         private $password;
+        private $requestData;
 
         //Methods
         public static function instance() {
@@ -32,7 +33,7 @@ function response($success, $message = "")
         public function processRequest(){
             //if the request is JSON data e.g. {'username' : 'JanroB'}
             $this->json = file_get_contents('php://input');
-            $this->user = json_decode($this->json, true); //Converts it into a PHP object
+            $this->requestData = json_decode($this->json, true); //Converts it into a PHP object
             header('Content-Type: application/json');
         }
 
@@ -63,10 +64,11 @@ function response($success, $message = "")
         }
 
         public function __construct() {
+            $this->type = $this->requestData['type'];
             if ( $this->type == 'login'){
-                $this->userName = ($this->user['userName']);
-                $this->password = ($this->user['password']); 
-                login($this->userName, $this->password);
+                $this->userName = ($this->requestData['userName']);
+                $this->password = ($this->requestData['password']); 
+                $this->login($this->userName, $this->password);
             }  
         }
     }
