@@ -28,7 +28,7 @@ function updatePlayer()
     if (updateOption.value == "age")
     {
         const data = {
-            "type":"uplayer",
+            "type":"uPlayer",
             "age":updateInput,
             "player_id": player_id
         };
@@ -36,7 +36,7 @@ function updatePlayer()
     else
     {
         const data = {
-            "type":"uplayer",
+            "type":"uPlayer",
             "weight":updateInput,
             "player_id": player_id
         };
