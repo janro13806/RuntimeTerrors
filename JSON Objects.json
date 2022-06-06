@@ -1,0 +1,9 @@
+JSON objects for different requests
+
+1. Add player
+
+{
+    "type":"",
+    "name":"",
+    "surname"
+}
