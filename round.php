@@ -33,7 +33,7 @@
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
    
-   <div id="controls">
+   <div class="controls">
    <button class="playerButton" type="button" id="add">Add Score</button>
    <form action="">
          <input type="text" placeholder="Round Number" id="round_nr"/><br>

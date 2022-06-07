@@ -81,32 +81,56 @@ function displayTable(resBody)
     //Parse the response object
     var resData = JSON.parse(resBody);
 
-    if (resData.success == "success")
+    if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
-        var arrData = JSON.parse(resData.message);
+        console.log(resData.message);
+        // var arrData = JSON.parse(resData.message);
 
-        var tableText = "";
+        var arrData=resData.message;
+
+        // var tableText = "";
 
         //Loop through the array
         for (let i = 0; i < arrData.length; i++) {
             const item = arrData[i];
 
-            tableText += "<tr>";
+            tr = document.createElement('tr');
+            td1 = document.createElement('td');
+            td2 = document.createElement('td');
+            td3 = document.createElement('td');
+            td4 = document.createElement('td');
+            td5 = document.createElement('td');
 
-            tableText += "<td>" + item.course_id + "</td>";
-            tableText += "<td>" + item.name + "</td>"; 
-            tableText += "<td>" + item.town + "</td>";
-            tableText += "<td>" + item.city + "</td>";
-            tableText += "<td>" + item.length + "</td>";
+            td1.textContent = item.course_id;
+            td2.textContent = item.name;
+            td3.textContent = item.town;
+            td4.textContent = item.city;
+            td5.textContent = item.length;
+           
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
 
-            tableText += "</tr>";
+            table.appendChild(tr);
+
+            // tableText += "<tr>";
+
+            // tableText += "<td>" + item.course_id + "</td>";
+            // tableText += "<td>" + item.name + "</td>"; 
+            // tableText += "<td>" + item.town + "</td>";
+            // tableText += "<td>" + item.city + "</td>";
+            // tableText += "<td>" + item.length + "</td>";
+
+            // tableText += "</tr>";
         }
 
         // tableText += "</table>";
 
 
         //Add the contents to the table
-        table.innerHtml = tableText;
+        // table.innerHtml = tableText;
     }
 }

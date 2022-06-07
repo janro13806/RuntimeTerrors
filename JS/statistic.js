@@ -41,34 +41,65 @@ function displayTable(resBody)
     //Parse the response object
     var resData = JSON.parse(resBody);
 
-    if (resData.success == "success")
+    if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
-        var arrData = JSON.parse(resData.message);
+        console.log(resData.message);
+        // var arrData = JSON.parse(resData.message);
 
-        var tableText = "";
+        var arrData=resData.message;
+
+        // var tableText = "";
 
         //Loop through the array
         for (let i = 0; i < arrData.length; i++) {
             const item = arrData[i];
 
-            tableText += "<tr>";
+            tr = document.createElement('tr');
+            td1 = document.createElement('td');
+            td2 = document.createElement('td');
+            td3 = document.createElement('td');
+            td4 = document.createElement('td');
+            td5 = document.createElement('td');
+            td6 = document.createElement('td');
+            td7 = document.createElement('td');
 
-            tableText += "<td>" + item.statistic_id + "</td>";
-            tableText += "<td>" + item.tournament_id + "</td>"; 
-            tableText += "<td>" + item.round_nr + "</td>";
-            tableText += "<td>" + item.score + "</td>";
-            tableText += "<td>" + item.pars + "</td>";
-            tableText += "<td>" + item.birdies + "</td>";
-            tableText += "<td>" + item.bogeys + "</td>";
+            td1.textContent = item.statistic_id;
+            td2.textContent = item.tournament_id;
+            td3.textContent = item.round_nr;
+            td4.textContent = item.score;
+            td5.textContent = item.pars;
+            td6.textContent = item.birdies;
+            td7.textContent = item.bogeys;
+           
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tr.appendChild(td6);
+            tr.appendChild(td7);
 
-            tableText += "</tr>";
+            table.appendChild(tr);
+
+
+            // tableText += "<tr>";
+
+            // tableText += "<td>" + item.statistic_id + "</td>";
+            // tableText += "<td>" + item.tournament_id + "</td>"; 
+            // tableText += "<td>" + item.round_nr + "</td>";
+            // tableText += "<td>" + item.score + "</td>";
+            // tableText += "<td>" + item.pars + "</td>";
+            // tableText += "<td>" + item.birdies + "</td>";
+            // tableText += "<td>" + item.bogeys + "</td>";
+
+            // tableText += "</tr>";
         }
 
         // tableText += "</table>";
 
 
         //Add the contents to the table
-        table.innerHtml = tableText;
+        // table.innerHtml = tableText;
     }
 }
