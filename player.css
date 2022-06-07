@@ -119,6 +119,10 @@ table, th, td {
     border-collapse: collapse;
   }
 
-#dataTable{
+table{
     width : 100%;
 }
+
+/* #dataTable{
+    
+} */
