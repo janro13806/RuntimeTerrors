@@ -76,13 +76,16 @@
       </form>
    </div>
    <div id="changePlayer" class="controls">
-   <button class="playerButton" type="button" id="changeButton">Change Attribute Value</button><br>
+   <h3>Change Attribute Value</h3><br>
+   <p id="countMsg"></p>
    <button class="playerButton" type="button" id="weight" onclick="weight()">Weight</button>
    <button class="playerButton" type="button" id="age" onclick="age()">Age</button>
    <!-- <input type="radio" name="update_option" value="Weight" id="weight_option" checked> Weight<br>
    <input type="radio" name="update_option" value="Height" id="age_option"> Height<br> -->
    <input type="text" placeholder="Value" name="name" id="update_value"/><br>
    <input type="text" placeholder="Player ID" name="name" id="id_input2"/><br>
+
+   <button class="playerButton" type="button" id="deleteButton" onclick="countPlayers()">Count Players</button><br>
    </div>
    </div>
 

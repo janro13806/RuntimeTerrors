@@ -215,9 +215,6 @@ function displayStat(resBody)
         {
             message = `The minimum score is ${resData.message}`;
         }
-
-         
-
         //Display the stat in one of the html objects
         var msgBox = document.getElementById("statMsg");
         msgBox.innerText = message;

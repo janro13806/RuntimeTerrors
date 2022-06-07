@@ -60,6 +60,7 @@ function age()
     const data = {
         "type":"uPlayer",
         "age":updateInput,
+        "weight":"",
         "player_id": idInput
     };
 
@@ -73,6 +74,7 @@ function weight()
     const data = {
         "type":"uPlayer",
         "weight":updateInput,
+        "age":"",
         "player_id": idInput
     };
 
@@ -220,5 +222,50 @@ function displayTable(resBody)
         // table.innerHtml = "";
         // table.innerHtml += tableText;
         
+    }
+}
+
+
+//COUNT REQUEST
+function sendCountRequest(data)
+{
+    //Create the request
+    const xhttpr = new XMLHttpRequest();
+
+    //Set how the response is handled
+    xhttpr.addEventListener("readystatechange", function() {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            var res = xhttpr.responseText;
+            console.log(res);
+            displayCount(res);
+        }
+    });
+
+
+    // console.log(data);
+
+    //Set the method and the URL
+    xhttpr.open("POST", "./api.php");
+
+    //Send the request with data as the body
+    xhttpr.send(JSON.stringify(data));
+}
+
+function displayCount(resBody)
+{
+    var resData = JSON.parse(resBody);
+
+    console.log(resData);
+    if (resData.success == "Success!!!")
+    {
+        //Parse the data part of the response object
+        var arrData = resData.message;
+
+        var message = `The number of players is ${resData.message}`;
+        
+        //Display the stat in one of the html objects
+        var msgBox = document.getElementById("countMsg");
+        msgBox.innerText = message;
     }
 }
