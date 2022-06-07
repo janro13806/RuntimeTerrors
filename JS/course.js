@@ -13,6 +13,7 @@ var updateOption = document.getElementById("update_option");
 
 //Get the table
 var table = document.getElementById("dataTable");
+table.innerHTML = "";
 
 window.addEventListener("load", function(){
 

@@ -1,11 +1,11 @@
 //GET COMPONENTS FROM WITH DOM
 //Get the buttons
-var addBtn = document.getElementById("add");
-deleteBtn.addEventListener("click", addScore());
+// var addBtn = document.getElementById("add");
+// deleteBtn.addEventListener("click", addScore());
 
-var statBtn = document.getElementById("stat");
-deleteBtn.addEventListener("click", getStat());
-var statOption = document.getElementById("stat_option").value;
+// var statBtn = document.getElementById("stat");
+// deleteBtn.addEventListener("click", getStat());
+// var statOption = document.getElementById("stat_option").value;
 
 //Get the inputs
 var round_nr = document.getElementById("round_nr").value;
@@ -19,6 +19,7 @@ var bogeys = document.getElementById("bogeys").value;
 
 //Get the table
 var table = document.getElementById("dataTable");
+table.innerHTML = "";
 
 window.addEventListener("load", function(){
 
@@ -89,7 +90,7 @@ function sendRequest(data)
     // console.log(data);
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
@@ -120,10 +121,10 @@ function displayTable(resBody)
             td3 = document.createElement('td');
             td4 = document.createElement('td');
 
-            td1.textContent = item.player_id;
-            td2.textContent = item.tournament_id;
-            td3.textContent = item.round_nr;
-            td4.textContent = item.score;
+            td1.textContent = item.Player_id;
+            td2.textContent = item.Tournament_id;
+            td3.textContent = item.Round_nr;
+            td4.textContent = item.Score;
            
             tr.appendChild(td1);
             tr.appendChild(td2);

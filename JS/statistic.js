@@ -2,6 +2,7 @@
 
 //Get the table
 var table = document.getElementById("dataTable");
+table.innerHTML = "";
 
 window.addEventListener("load", function(){
 
@@ -30,7 +31,7 @@ function sendRequest(data)
     });
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));

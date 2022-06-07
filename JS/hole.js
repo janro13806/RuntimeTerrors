@@ -2,6 +2,7 @@
 
 //Get the table
 var table = document.getElementById("dataTable");
+table.innerHTML = "";
 
 window.addEventListener("load", function(){
 
@@ -30,7 +31,7 @@ function sendRequest(data)
     });
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
@@ -47,7 +48,7 @@ function displayTable(resBody)
         // var arrData = JSON.parse(resData.message);
 
         var arrData=resData.message
-
+        console.log(arrData);
         // var tableText = "";
 
         //Loop through the array
@@ -62,12 +63,13 @@ function displayTable(resBody)
             td5 = document.createElement('td');
             td6 = document.createElement('td');
 
-            td1.textContent = item.hole_nr;
-            td2.textContent = item.distance;
-            td3.textContent = item.par;
-            td4.textContent = item.num_bunkers;
-            td5.textContent = item.stroke_difficulty;
-            td6.textContent = item.course_id;
+            td1.textContent = item.Hole_nr;
+
+            td2.textContent = item.Name;
+            td3.textContent = item.Course_id;
+            td4.textContent = item.Distance;
+            td5.textContent = item.Par;
+            td6.textContent = item.Num_Bunkers;
            
             tr.appendChild(td1);
             tr.appendChild(td2);

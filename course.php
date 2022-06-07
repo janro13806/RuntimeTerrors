@@ -42,5 +42,6 @@
 
 	</div>
 
+   <script src="JS/course.js"></script>
     </body>
 </html>

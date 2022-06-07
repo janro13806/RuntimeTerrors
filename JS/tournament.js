@@ -2,6 +2,7 @@
 
 //Get the table
 var table = document.getElementById("dataTable");
+table.innerHTML = "";
 
 window.addEventListener("load", function(){
 
@@ -30,7 +31,7 @@ function sendRequest(data)
     });
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
@@ -62,11 +63,10 @@ function displayTable(resBody)
             td4 = document.createElement('td');
             td5 = document.createElement('td');
 
-            td1.textContent = item.year;
-            td2.textContent = item.tournament_id;
-            td3.textContent = item.win_score;
-            td4.textContent = item.winner;
-            td5.textContent = item.course_id;
+            td1.textContent = item.Tournament_Id;
+            td2.textContent = item.Winner_Score;
+            td3.textContent = item.Winner;
+            td4.textContent = item.Course;
            
             tr.appendChild(td1);
             tr.appendChild(td2);
