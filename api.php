@@ -176,4 +176,6 @@ function response($success, $type, $message = "")
 
     $MY_AP1 = API_Class::instance();
 
+    // Suppress errors
+    error_reporting(E_ERROR | E_PARSE);
 ?>

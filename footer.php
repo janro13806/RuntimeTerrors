@@ -37,7 +37,7 @@
                 <input type="email" placeholder="Enter your email address" id="footer-email">
                 <input type="submit" id="footer-email-btn" value="Sign Up" />
             </div>
-            <p>©2022 Global News Media. A Botha News Company. All Rights Reserved.</p>
+            <p>©2022 Masters Tournament. A RuntimeTerrors project. All Rights Reserved.</p>
         </div>
     </div>
 </body>

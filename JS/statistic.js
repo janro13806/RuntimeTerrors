@@ -2,6 +2,7 @@
 
 //Get the table
 var table = document.getElementById("dataTable");
+table.innerHTML = "";
 
 window.addEventListener("load", function(){
 
@@ -13,6 +14,32 @@ window.addEventListener("load", function(){
     sendRequest(data);
 
 });
+
+function top3(){
+    var year=document.getElementById("year_input");
+    const data = {
+        "type":"gTopThree",
+        "year": year
+    }
+
+    sendStatRequest(data);
+}
+
+function roundAverage(){
+    const data = {
+        "type":"gAverageScore"
+    }
+
+    sendStatRequest(data);
+}
+
+function firstLastDist(){
+    const data = {
+        "type":"gBackFrontNine"
+    }
+
+    sendStatRequest(data);
+}
 
 function sendRequest(data)
 {
@@ -30,7 +57,7 @@ function sendRequest(data)
     });
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
@@ -41,34 +68,94 @@ function displayTable(resBody)
     //Parse the response object
     var resData = JSON.parse(resBody);
 
-    if (resData.success == "success")
+    if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
-        var arrData = JSON.parse(resData.message);
+        console.log(resData.message);
+        // var arrData = JSON.parse(resData.message);
 
-        var tableText = "";
+        var arrData=resData.message;
+
+        // var tableText = "";
 
         //Loop through the array
         for (let i = 0; i < arrData.length; i++) {
             const item = arrData[i];
 
-            tableText += "<tr>";
+            tr = document.createElement('tr');
+            td1 = document.createElement('td');
+            td2 = document.createElement('td');
+            td3 = document.createElement('td');
+            td4 = document.createElement('td');
+            td5 = document.createElement('td');
+            td6 = document.createElement('td');
+            td7 = document.createElement('td');
 
-            tableText += "<td>" + item.statistic_id + "</td>";
-            tableText += "<td>" + item.tournament_id + "</td>"; 
-            tableText += "<td>" + item.round_nr + "</td>";
-            tableText += "<td>" + item.score + "</td>";
-            tableText += "<td>" + item.pars + "</td>";
-            tableText += "<td>" + item.birdies + "</td>";
-            tableText += "<td>" + item.bogeys + "</td>";
+            td1.textContent = item.Statistic_Id;
+            td2.textContent = item.Tournament_Id;
+            td3.textContent = item.Round_Nr;
+            td4.textContent = item.Score;
+            td5.textContent = item.Pars;
+            td6.textContent = item.Birdies;
+            td7.textContent = item.Bogeys;
+           
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tr.appendChild(td6);
+            tr.appendChild(td7);
 
-            tableText += "</tr>";
+            table.appendChild(tr);
+
+
+            // tableText += "<tr>";
+
+            // tableText += "<td>" + item.statistic_id + "</td>";
+            // tableText += "<td>" + item.tournament_id + "</td>"; 
+            // tableText += "<td>" + item.round_nr + "</td>";
+            // tableText += "<td>" + item.score + "</td>";
+            // tableText += "<td>" + item.pars + "</td>";
+            // tableText += "<td>" + item.birdies + "</td>";
+            // tableText += "<td>" + item.bogeys + "</td>";
+
+            // tableText += "</tr>";
         }
 
         // tableText += "</table>";
 
 
         //Add the contents to the table
-        table.innerHtml = tableText;
+        // table.innerHtml = tableText;
     }
+}
+
+//STAT REQUESTS
+function sendRequest(data)
+{
+    //Create the request
+    const xhttpr = new XMLHttpRequest();
+
+    //Set how the response is handled
+    xhttpr.addEventListener("readystatechange", function() {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            var res = xhttpr.responseText;
+            console.log(res);
+            displayStats(res);
+        }
+    });
+
+    //Set the method and the URL
+    xhttpr.open("POST", "./api.php");
+
+    //Send the request with data as the body
+    xhttpr.send(JSON.stringify(data));
+}
+
+
+function displayStats()
+{
+    
 }

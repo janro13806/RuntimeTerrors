@@ -12,23 +12,30 @@
    </div>
    <br><br><br>
    <div id="main">
-   <table id = "dataTable">
-      <tr>
-         <th>ID/Year</th>
-         <th>Win Score</th>
-         <th>Winner</th>
-         
-      </tr>
-      <tr>
-         <td>Alfreds Futterkiste</td>
-         <td>Maria Anders</td>
-         <td>Germany</td>
-      </tr>
-      <tr>
-         <td>Centro comercial Moctezuma</td>
-         <td>Francisco Chang</td>
-         <td>Mexico</td>
-      </tr>
+   <table>
+
+      <thead>
+         <tr>
+            <th>Year</th>
+            <th>Win Score</th>
+            <th>Winner</th>
+            <th>Course</th>
+         </tr>
+      </thead>
+      
+      <tbody id = "dataTable">
+         <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+         </tr>
+         <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+         </tr>
+      </tbody>
+      
    </table> 
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
@@ -36,5 +43,6 @@
 				<?php include 'footer.php';?>
 
 	</div>
+   <script src="JS/tournament.js"></script>
     </body>
 </html>
