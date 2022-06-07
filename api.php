@@ -1,5 +1,6 @@
 <?php
     include_once('config.php');
+    include_once('functions.php');
     session_start();
 
 //================================================================================
@@ -9,7 +10,7 @@ function response($success, $message = "")
 {   header("HTTP/1.1 200 OK");
     header("Content-Type: application/json");
 
-    $assocArray = array("success" => $success, "message" => $message);
+    $assocArray = array("success" => $success,"type" => $type ,"message" => $message);
 
     echo json_encode($assocArray);
 }
@@ -21,6 +22,7 @@ function response($success, $message = "")
         private $type;
         private $userName;
         private $password;
+        private $requestData;
 
         //Methods
         public static function instance() {
@@ -32,7 +34,7 @@ function response($success, $message = "")
         public function processRequest(){
             //if the request is JSON data e.g. {'username' : 'JanroB'}
             $this->json = file_get_contents('php://input');
-            $this->user = json_decode($this->json, true); //Converts it into a PHP object
+            $this->requestData = json_decode($this->json, true); //Converts it into a PHP object
             header('Content-Type: application/json');
         }
 
@@ -49,7 +51,7 @@ function response($success, $message = "")
                     //Fetch the data from the found user
                     $user_data = mysqli_fetch_assoc($result);
                     $_SESSION['userName'] = $user_data['userName'];
-                    response("Success!!!", $_SESSION['userName']);
+                    response("Success!!!", $this->type ,$_SESSION['userName']);
                     die();
                 }
                 header('Location: login.php?login=userNotFound');
@@ -63,11 +65,92 @@ function response($success, $message = "")
         }
 
         public function __construct() {
-            if ( $this->type == 'login'){
-                $this->userName = ($this->user['userName']);
-                $this->password = ($this->user['password']); 
-                login($this->userName, $this->password);
-            }  
+            $this->type = $this->requestData['type'];
+
+            if ($this->type == 'login'){
+                $this->userName = ($this->requestData['userName']);
+                $this->password = ($this->requestData['password']); 
+                $this->login($this->userName, $this->password);
+            } 
+            else if ( $this->type == 'dPlayer') {
+                $this->player_id = $this->requestData['player_id'];
+                $newPlayArr = deletePlayer($this->player_id);
+                response("Success!!!", $this->type, $newPlayArr);
+            } 
+            else if ($this->type == 'uPlayer') {
+                $this->player_id = $this->requestData['player_id'];
+                if ($this->requestData['age']){
+                    $this->age = ($this->requestData['age']);
+                    $newPlayArr = updatePlayerAge($this->player_id, $this->age);
+                    response("Success!!!", $this->type, $newPlayArr);
+                }
+                if ($this->requestData['weight']){
+                    $this->weight = ($this->requestData['weight']);
+                    $newPlayArr = updatePlayerWeight($this->player_id, $this->weight);
+                    response("Success!!!", $this->type, $newPlayArr);
+                }
+            }
+            else if ($this->type == 'uCourse') {
+                $this->length = $this->requestData['length'];
+                $this->course_id = $this->requestData['course_id'];
+
+                $newCourseArr = updateCourse($this->length, $this->course_id);
+                response("Success!!!", $this->type, $newCourseArr);
+            }
+            else if ($this->type == 'dCourse') {
+                $this->course_id = $this->requestData['course_id'];
+
+                $newCourseArr = deleteCourse($this->course_id);
+                response("Success!!!", $this->type, $newCourseArr);
+            }
+            else if ($this->type == 'aScore') {
+                $this->player_id = $this->requestData['player_id'];
+                $this->tournament_id = $this->requestData['tournament_id'];
+                $this->round_nr = $this->requestData['round_nr'];
+                $this->score = $this->requestData['score'];
+                $this->pars = $this->requestData['pars'];
+                $this->birdies = $this->requestData['birdies'];
+                $this->bogeys = $this->requestData['bogeys'];
+
+                $newScoreArr = addScore($player_id, $tournament_id, $round_nr, $score, $pars, $birdies, $bogeys);
+                response("Success!!!", $this->type, $newScoreArr);     
+            }
+            else if ($this->type == 'cPlayers') {
+                $numPlayers = countPlayers();
+                response("Success!!!", $this->type, $numPlayers);
+            }
+            else if ($this->type == 'minScore') {
+                $minScore = minScore(); 
+                response("Success!!!", $this->type, $minScore);
+            }
+            else if ($this->type == 'maxScore') {
+                $maxScore = maxScore(); 
+                response("Success!!!", $this->type, $maxScore);    
+            }
+            else if ($this->type == 'gPlayer') {
+                $PlayersArr = getPlayer();
+                response("Success!!!", $this->type, $PlayersArr);
+            }
+            else if ($this->type == 'gCourse') {
+                $CourseArr = getCourse();
+                response("Success!!!", $this->type, $CourseArr);
+            }
+            else if ($this->type == 'gHoles') {
+                $HolesArr = getHoles();
+                response("Success!!!", $this->type, $HolesArr); 
+            }
+            else if ($this->type == 'gRounds') {
+                $RoundsArr = getRounds();
+                response("Success!!!", $this->type, $RoundsArr);   
+            }
+            else if ($this->type == 'gStatistics') {
+                $StatisticsArr = getStatistics();
+                response("Success!!!", $this->type, $StatisticsArr)
+            }
+            else if ($this->type == 'gTournaments') {
+                $TournamentsArr = getTournaments();
+                response("Success!!!", $this->type, $TournamentsArr);
+            }
         }
     }
 
