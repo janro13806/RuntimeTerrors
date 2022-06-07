@@ -72,7 +72,7 @@ function addScore()
 function min()
 {
     const data = {
-        "type":"maxScore"
+        "type":"minScore"
     };
 
     sendStatRequest(data); 
@@ -81,7 +81,7 @@ function min()
 function max()
 {
     const data = {
-        "type":"minScore"
+        "type":"maxScore"
     };
 
     sendStatRequest(data); 

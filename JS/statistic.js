@@ -11,6 +11,7 @@ window.addEventListener("load", function(){
         "type":"gStatistics"
     }
 
+    console.log(data);
     sendRequest(data);
 
 });
@@ -109,25 +110,7 @@ function displayTable(resBody)
 
             table.appendChild(tr);
 
-
-            // tableText += "<tr>";
-
-            // tableText += "<td>" + item.statistic_id + "</td>";
-            // tableText += "<td>" + item.tournament_id + "</td>"; 
-            // tableText += "<td>" + item.round_nr + "</td>";
-            // tableText += "<td>" + item.score + "</td>";
-            // tableText += "<td>" + item.pars + "</td>";
-            // tableText += "<td>" + item.birdies + "</td>";
-            // tableText += "<td>" + item.bogeys + "</td>";
-
-            // tableText += "</tr>";
         }
-
-        // tableText += "</table>";
-
-
-        //Add the contents to the table
-        // table.innerHtml = tableText;
     }
 }
 
