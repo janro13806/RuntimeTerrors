@@ -26,12 +26,12 @@
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="loginbtn" name="Submit">Log In</button>
+      <button type="submit" class="loginbtn" name="Submit" onclick = "submit()" >Log In</button>
     </div>
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
 
-
+   <script src="JS/login.js"></script>
    <?php include_once 'footer.php' ?>
 
 </body>

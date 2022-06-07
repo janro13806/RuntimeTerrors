@@ -42,7 +42,7 @@ function addScore()
         "score": score,
         "pars": pars,
         "birdies": birdies,
-        "bogeys": bogeys,
+        "bogeys": bogeys
     };
 
     sendRequest(data); 
@@ -54,9 +54,7 @@ function getStat()
     //Create data object with type min/max depending on which option is selected
     if (statOption == "Minimum")
     {
-        const data = {
-            "type":"maxScore"
-        };
+        
     }
     else
     {
@@ -66,6 +64,24 @@ function getStat()
     
     }
     
+
+    sendStatRequest(data); 
+}
+
+function min()
+{
+    const data = {
+        "type":"maxScore"
+    };
+
+    sendStatRequest(data); 
+}
+
+function max()
+{
+    const data = {
+        "type":"minScore"
+    };
 
     sendStatRequest(data); 
 }
@@ -174,7 +190,7 @@ function sendStatRequest(data)
     // console.log(data);
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
@@ -188,9 +204,19 @@ function displayStat(resBody)
     if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
-        var arrData = JSON.parse(resData.message);
+        var arrData = resData.message;
 
-        var message = "Value min or max depending on response";
+        var message = "";
+        if (resData.type == "maxScore")
+        {
+            message = `The maximum score is ${resData.message}`;
+        }
+        else
+        {
+            message = `The minimum score is ${resData.message}`;
+        }
+
+         
 
         //Display the stat in one of the html objects
         var msgBox = document.getElementById("statMsg");

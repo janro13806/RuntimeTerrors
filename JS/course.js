@@ -1,15 +1,15 @@
 //GET COMPONENTS FROM WITH DOM
 //Get the buttons
-var deleteBtn = document.getElementById("delete");
-deleteBtn.addEventListener("click", deleteCourse());
+// var deleteBtn = document.getElementById("delete");
+// deleteBtn.addEventListener("click", deleteCourse());
 
-var updateBtn = document.getElementById("update");
-deleteBtn.addEventListener("click", updateCourse());
+// var updateBtn = document.getElementById("update");
+// deleteBtn.addEventListener("click", updateCourse());
 
 //Get the inputs
-var idInput = document.getElementById("id_input").value;
-var updateInput = document.getElementById("update_value").value;
-var updateOption = document.getElementById("update_option");
+// var idInput = document.getElementById("id_input").value;
+// var updateInput = document.getElementById("update_value").value;
+// var updateOption = document.getElementById("update_option");
 
 //Get the table
 var table = document.getElementById("dataTable");
@@ -71,7 +71,7 @@ function sendRequest(data)
     // console.log(data);
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
@@ -103,11 +103,11 @@ function displayTable(resBody)
             td4 = document.createElement('td');
             td5 = document.createElement('td');
 
-            td1.textContent = item.course_id;
-            td2.textContent = item.name;
-            td3.textContent = item.town;
-            td4.textContent = item.city;
-            td5.textContent = item.length;
+            td1.textContent = item.Course_Id;
+            td2.textContent = item.Name;
+            td3.textContent = item.Town;
+            td4.textContent = item.City;
+            td5.textContent = item.Length;
            
             tr.appendChild(td1);
             tr.appendChild(td2);

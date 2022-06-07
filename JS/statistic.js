@@ -15,6 +15,32 @@ window.addEventListener("load", function(){
 
 });
 
+function top3(){
+    var year=document.getElementById("year_input");
+    const data = {
+        "type":"gTopThree",
+        "year": year
+    }
+
+    sendRequest(data);
+}
+
+function roundAverage(){
+    const data = {
+        "type":"gAverageScore"
+    }
+
+    sendRequest(data);
+}
+
+function firstLastDist(){
+    const data = {
+        "type":"gBackFrontNine"
+    }
+
+    sendRequest(data);
+}
+
 function sendRequest(data)
 {
     //Create the request
@@ -65,13 +91,13 @@ function displayTable(resBody)
             td6 = document.createElement('td');
             td7 = document.createElement('td');
 
-            td1.textContent = item.statistic_id;
-            td2.textContent = item.tournament_id;
-            td3.textContent = item.round_nr;
-            td4.textContent = item.score;
-            td5.textContent = item.pars;
-            td6.textContent = item.birdies;
-            td7.textContent = item.bogeys;
+            td1.textContent = item.Statistic_Id;
+            td2.textContent = item.Tournament_Id;
+            td3.textContent = item.Round_Nr;
+            td4.textContent = item.Score;
+            td5.textContent = item.Pars;
+            td6.textContent = item.Birdies;
+            td7.textContent = item.Bogeys;
            
             tr.appendChild(td1);
             tr.appendChild(td2);

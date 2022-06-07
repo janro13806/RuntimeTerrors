@@ -12,7 +12,7 @@
    </div>
    <br><br><br>
    <div id="main">
-   <table id = "dataTable">
+   <table >
       <thead>
          <tr>
             <th>ID</th>
@@ -25,7 +25,7 @@
          </tr>
       </thead>
       
-      <tbody>
+      <tbody id = "dataTable">
          <tr>
             <td>Alfreds Futterkiste</td>
             <td>Maria Anders</td>
@@ -41,6 +41,17 @@
    </table> 
    <br><br><br><br><br><br><br><br><br><br><br><br>
 
+   <div class="controls">
+      <h3 id="top3Msg"></h3>
+      <ul id="top3players">
+         
+      </ul>
+      <input type="text" placeholder="Year" id="year_input"/><br>
+      <button class="playerButton" type="button" id="top3" onclick="top3()">Top 3 Players</button>
+      <button class="playerButton" type="button" id="round_avg" onclick="roundAverage()">Round Average</button>
+      <button class="playerButton" type="button" id="first_last_dist" onclick="firstLastDist()">First 9 & Last 9 distances</button>
+   </div>
+
    <!-- Buttons -->
    <!-- Top 3 players -->
    <!-- Average Score per round - returns all rounds but grouped and average added-->
@@ -52,5 +63,6 @@
 
 	</div>
 
+   <script src="JS/statistic.js"></script>
     </body>
 </html>

@@ -7,8 +7,8 @@
 // deleteBtn.addEventListener("click", updatePlayer());
 
 // //Get the inputs
-// var idInput = document.getElementById("id_input");
-// var updateInput = document.getElementById("update_value").value;
+var idInput = document.getElementById("id_input");
+var updateInput = document.getElementById("update_value").value;
 
 // var weightBtn = document.getElementById("weight_option");
 // var ageBtn = document.getElementById("age_option");
@@ -55,6 +55,8 @@ window.addEventListener("load", function(){
 
 function age()
 {
+    var idInput = document.getElementById("id_input2").value;
+    var updateInput = document.getElementById("update_value").value;
     const data = {
         "type":"uPlayer",
         "age":updateInput,
@@ -66,6 +68,8 @@ function age()
 
 function weight()
 {
+    var idInput = document.getElementById("id_input2").value;
+    var updateInput = document.getElementById("update_value").value;
     const data = {
         "type":"uPlayer",
         "weight":updateInput,
@@ -77,6 +81,7 @@ function weight()
 
 function deletePlayer()
 {
+    var idInput = document.getElementById("id_input");
     const data = {
         "type":"dPlayer",
         "player_id": idInput
@@ -96,7 +101,23 @@ function countPlayers()
 
 function addPlayer()
 {
+    var name = document.getElementById("playerName").value;
+    var surname = document.getElementById("playerSurname").value;
+    var ranking = document.getElementById("playerRanking").value;
+    var nationality = document.getElementById("playerNationality").value;
+    var weight = document.getElementById("playerWeight").value;
+    var height = document.getElementById("playerHeight").value;
+    const data = {
+        "type":"aPlayer",
+        "name":name,
+        "surname":surname,
+        "ranking":ranking,
+        "nationality":nationality,
+        "weight":weight,
+        "height": height
+    };
 
+    sendRequest(data); 
 }
 
 

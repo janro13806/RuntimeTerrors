@@ -67,13 +67,12 @@
    <div id="addPlayer" class="controls">
    <button class="playerButton" type="button" id="add" onclick="addPlayer()">Add Player</button>
    <form action="">
-         <input type="text" placeholder="First Name" name="name"/><br>
-         <input type="text" placeholder="Surname" name="name"/><br>
-         <input type="text" placeholder="Ranking" name="name"/><br>
-         <input type="text" placeholder="Nationality" name="name"/><br>
-         <input type="text" placeholder="Weight" name="name"/><br>
-         <input type="text" placeholder="Height" name="password"> <br><br>
-         <input type="submit" value="Submit">
+         <input type="text" placeholder="First Name" id="playerName"/><br>
+         <input type="text" placeholder="Surname" id="playerSurname"/><br>
+         <input type="text" placeholder="Ranking" id="playerRanking"/><br>
+         <input type="text" placeholder="Nationality" id="playerNationality"/><br>
+         <input type="text" placeholder="Weight" id="playerWeight"/><br>
+         <input type="text" placeholder="Height" id="playerHeight"> <br><br>
       </form>
    </div>
    <div id="changePlayer" class="controls">
@@ -83,6 +82,7 @@
    <!-- <input type="radio" name="update_option" value="Weight" id="weight_option" checked> Weight<br>
    <input type="radio" name="update_option" value="Height" id="age_option"> Height<br> -->
    <input type="text" placeholder="Value" name="name" id="update_value"/><br>
+   <input type="text" placeholder="Player ID" name="name" id="id_input2"/><br>
    </div>
    </div>
 

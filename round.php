@@ -53,16 +53,18 @@
       </form>
 
       <div id="statistics">
-         <p id="statMsg">Message goes here</p>
+         <p id="statMsg"></p>
          
          
-         <input type="radio" name="statOption" id="stat_option" value="Minimum" checked>
-         <label for="">Minimum Score</label> <br>
-         
-         <input type="radio" name="statOption" id="stat_option" value="Maximum" checked>
-         <label for="">Maximum Score</label> <br>
+         <button class="playerButton" type="button" id="min" onclick="min()">Minimum Score</button>
+         <!-- <input type="radio" name="statOption" id="stat_option" value="Minimum" checked>
+         <label for="">Minimum Score</label> <br> -->
 
-         <button id="stat">Show Result</button>
+         <button class="playerButton" type="button" id="max" onclick="max()">Maximum Score</button>
+         <!-- <input type="radio" name="statOption" id="stat_option" value="Maximum" checked>
+         <label for="">Maximum Score</label> <br> -->
+
+         <!-- <button id="stat">Show Result</button> -->
       </div>
    </div>
     <div id="footer">
