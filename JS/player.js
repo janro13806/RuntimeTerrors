@@ -34,7 +34,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "age":updateInput,
-            "person_id": idInput
+            "player_id": idInput
         };
     }
     else
@@ -42,7 +42,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "weight":updateInput,
-            "person_id": idInput
+            "player_id": idInput
         };
     }
     
@@ -53,7 +53,7 @@ function deletePlayer()
 {
     const data = {
         "type":"dPlayer",
-        "person_id": idInput
+        "player_id": idInput
     };
 
     sendRequest(data); 
@@ -65,7 +65,7 @@ function countPlayers()
         "type":"cPlayers"
     };
 
-    sendRequest(data);
+    sendCountRequest(data);
 }
 
 
@@ -99,7 +99,7 @@ function displayTable(resBody)
     //Parse the response object
     var resData = JSON.parse(resBody);
 
-    if (resData.success == "success")
+    if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
         var arrData = JSON.parse(resData.message);
