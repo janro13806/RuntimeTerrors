@@ -6,7 +6,7 @@
 //================================================================================
 // CREATE RESPONSE FUNCTION.
 //================================================================================
-function response($success, $message = "") 
+function response($success, $type, $message = "") 
 {   header("HTTP/1.1 200 OK");
     header("Content-Type: application/json");
 
@@ -40,6 +40,7 @@ function response($success, $message = "")
 
         public function login($name, $pass){
             if (!empty($name) && !empty($pass) && !is_numeric($name)) {
+                $con = connect();
                 //read from database..
 
                 $query = "SELECT * FROM users WHERE userName = '$name' AND userPassword = '$pass' limit 1";
@@ -65,6 +66,7 @@ function response($success, $message = "")
         }
 
         public function __construct() {
+            $this->processRequest();
             $this->type = $this->requestData['type'];
 
             if ($this->type == 'login'){
@@ -112,7 +114,7 @@ function response($success, $message = "")
                 $this->birdies = $this->requestData['birdies'];
                 $this->bogeys = $this->requestData['bogeys'];
 
-                $newScoreArr = addScore($player_id, $tournament_id, $round_nr, $score, $pars, $birdies, $bogeys);
+                $newScoreArr = addScore($this->player_id, $this->tournament_id, $this->round_nr, $this->score, $this->pars, $this->birdies, $this->bogeys);
                 response("Success!!!", $this->type, $newScoreArr);     
             }
             else if ($this->type == 'cPlayers') {
@@ -145,7 +147,7 @@ function response($success, $message = "")
             }
             else if ($this->type == 'gStatistics') {
                 $StatisticsArr = getStatistics();
-                response("Success!!!", $this->type, $StatisticsArr)
+                response("Success!!!", $this->type, $StatisticsArr);
             }
             else if ($this->type == 'gTournaments') {
                 $TournamentsArr = getTournaments();
