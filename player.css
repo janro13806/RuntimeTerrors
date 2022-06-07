@@ -45,7 +45,6 @@ h4 {
     font-family: Quicksand;
     border: 5px solid grey;
     background: white;
-    width: 70%;
     margin: 25px auto;
     padding: 10px 10px;
     text-align: center;
@@ -55,21 +54,39 @@ h4 {
     height: 60%;
 }
 
-#controls {
+.controls {
     font-family: Quicksand;
     border: 5px solid black;
     background: grey;
-    width: 70%;
-    margin: 25px auto;
+    margin:  2px auto;
     padding: 10px 10px;
-    text-align: center;
     box-shadow: -4px -3px 45px 21px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
-    width: 60%;
-    height: 60%;
+    min-width: 20%;
+    min-height: 100%;
+    display: inline-block;
+    vertical-align:auto;
 }
 
-#controls input{
+#playerContainer{
+    width:60%;
+    height: 40%;
+    
+    margin: auto;
+}
+
+#deletePlayer{
+    
+}
+#addPlayer{
+    
+}
+#changePlayer{
+    
+}
+
+
+#playerContainer input{
     padding: 5px;
     margin: 2px auto;
     border-radius: 200px;

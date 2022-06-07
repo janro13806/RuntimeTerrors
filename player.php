@@ -21,11 +21,13 @@
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
 
-   
-   <div id="controls">
+   <div id="playerContainer">
+   <div id="deletePlayer" class="controls">
    <button class="playerButton" type="button">Delete Player</button>
+   <input type="text" placeholder="Player ID" name="name"/><br>
+   </div>
+   <div id="addPlayer" class="controls">
    <button class="playerButton" type="button">Add Player</button>
-   <button class="playerButton" type="button">Change Attribute Value</button>
    <form action="">
          <input type="text" placeholder="First Name" name="name"/><br>
          <input type="text" placeholder="Surname" name="name"/><br>
@@ -35,6 +37,13 @@
          <input type="text" placeholder="Height" name="password"> <br><br>
          <input type="submit" value="Submit">
       </form>
+   </div>
+   <div id="changePlayer" class="controls">
+   <button class="playerButton" type="button">Change Attribute Value</button>
+   <input type="radio" name="gender" value="Weight"> Weight<br>
+   <input type="radio" name="gender" value="Height"> Height<br>
+   <input type="text" placeholder="Value" name="name"/><br>
+   </div>
    </div>
 
    <?php include_once 'footer.html' ?>
