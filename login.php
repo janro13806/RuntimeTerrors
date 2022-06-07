@@ -29,11 +29,12 @@
       <button type="submit" class="loginbtn" name="Submit" onclick = "submit()" >Log In</button>
     </div>
    <br><br><br><br><br><br><br><br><br><br><br><br>
-   </div>
    <div id="loginResult">
       <p id="loginMsg"></p>
       
    </div>
+   </div>
+   
 
    <script src="JS/login.js"></script>
    <?php include_once 'footer.php' ?>
