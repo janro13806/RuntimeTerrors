@@ -54,8 +54,8 @@
 
    <div id="playerContainer">
    <div id="deletePlayer" class="controls">
-   <button class="playerButton" type="button" id="delete">Delete Player</button><br>
-   <input type="text" placeholder="Player ID" name="name"/><br>
+   <button class="playerButton" type="button" id="deleteButton">Delete Player</button><br>
+   <input type="text" placeholder="Player ID" name="name" id="id_input"/><br>
    </div>
    <div id="addPlayer" class="controls">
    <button class="playerButton" type="button" id="add">Add Player</button>
@@ -70,10 +70,12 @@
       </form>
    </div>
    <div id="changePlayer" class="controls">
-   <button class="playerButton" type="button" id="update">Change Attribute Value</button><br>
-   <input type="radio" name="update_option" value="Weight"> Weight<br>
-   <input type="radio" name="update_option" value="Height"> Height<br>
-   <input type="text" placeholder="Value" name="name"/><br>
+   <button class="playerButton" type="button" id="changeButton">Change Attribute Value</button><br>
+   <button class="playerButton" type="button" id="weightBtn">Change Attribute Value</button>
+   <button class="playerButton" type="button" id="ageBtn">Change Attribute Value</button>
+   <!-- <input type="radio" name="update_option" value="Weight" id="weight_option" checked> Weight<br>
+   <input type="radio" name="update_option" value="Height" id="age_option"> Height<br> -->
+   <input type="text" placeholder="Value" name="name" id="update_value"/><br>
    </div>
    </div>
 

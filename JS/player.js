@@ -9,7 +9,11 @@ deleteBtn.addEventListener("click", updatePlayer());
 //Get the inputs
 var idInput = document.getElementById("id_input");
 var updateInput = document.getElementById("update_value").value;
-var updateOption = document.getElementById("update_option");
+
+
+// var weightOption = document.getElementById("weight_option");
+// var ageOption = document.getElementById("age_option");
+// console.log(ageOption);
 
 //Get the table
 var table = document.getElementById("dataTable");
@@ -29,7 +33,7 @@ window.addEventListener("load", function(){
 function updatePlayer()
 {
     //Create data object based on which update option is selected
-    if (updateOption.value == "age")
+    if (ageOption.checked == true)
     {
         const data = {
             "type":"uPlayer",
@@ -88,7 +92,7 @@ function sendRequest(data)
     // console.log(data);
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
