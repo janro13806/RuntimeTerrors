@@ -22,7 +22,7 @@ function top3(){
         "year": year
     }
 
-    sendRequest(data);
+    sendStatRequest(data);
 }
 
 function roundAverage(){
@@ -30,7 +30,7 @@ function roundAverage(){
         "type":"gAverageScore"
     }
 
-    sendRequest(data);
+    sendStatRequest(data);
 }
 
 function firstLastDist(){
@@ -38,7 +38,7 @@ function firstLastDist(){
         "type":"gBackFrontNine"
     }
 
-    sendRequest(data);
+    sendStatRequest(data);
 }
 
 function sendRequest(data)
@@ -129,4 +129,33 @@ function displayTable(resBody)
         //Add the contents to the table
         // table.innerHtml = tableText;
     }
+}
+
+//STAT REQUESTS
+function sendRequest(data)
+{
+    //Create the request
+    const xhttpr = new XMLHttpRequest();
+
+    //Set how the response is handled
+    xhttpr.addEventListener("readystatechange", function() {
+        if (this.readyState == 4 && this.status == 200)
+        {
+            var res = xhttpr.responseText;
+            console.log(res);
+            displayStats(res);
+        }
+    });
+
+    //Set the method and the URL
+    xhttpr.open("POST", "./api.php");
+
+    //Send the request with data as the body
+    xhttpr.send(JSON.stringify(data));
+}
+
+
+function displayStats()
+{
+    
 }

@@ -150,6 +150,7 @@ function sendRequest(data)
 
 function displayTable(resBody)
 {
+    table.innerHTML = "";
     //Parse the response object
     var resData = JSON.parse(resBody);
 
@@ -197,6 +198,7 @@ function displayTable(resBody)
 
             table.appendChild(tr);
 
+            console.log("Beers Tomorrow!!!");
             // console.log(item.Player_ID);
 
 

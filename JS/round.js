@@ -8,13 +8,7 @@
 // var statOption = document.getElementById("stat_option").value;
 
 //Get the inputs
-var round_nr = document.getElementById("round_nr").value;
-var player_id = document.getElementById("player_id").value;
-var tournament_id = document.getElementById("tournament_id").value;
-var score = document.getElementById("score").value;
-var pars = document.getElementById("pars").value;
-var birdies = document.getElementById("birdies").value;
-var bogeys = document.getElementById("bogeys").value;
+
 
 
 //Get the table
@@ -34,6 +28,13 @@ window.addEventListener("load", function(){
 
 function addScore()
 {
+    var round_nr = document.getElementById("round_nr").value;
+    var player_id = document.getElementById("player_id").value;
+    var tournament_id = document.getElementById("tournament_id").value;
+    var score = document.getElementById("score").value;
+    var pars = document.getElementById("pars").value;
+    var birdies = document.getElementById("birdies").value;
+    var bogeys = document.getElementById("bogeys").value;
     const data = {
         "type":"aScore",
         "player_id": '"' + player_id + '"',
@@ -49,24 +50,24 @@ function addScore()
 }
 
 
-function getStat()
-{
-    //Create data object with type min/max depending on which option is selected
-    if (statOption == "Minimum")
-    {
+// function getStat()
+// {
+//     //Create data object with type min/max depending on which option is selected
+//     if (statOption == "Minimum")
+//     {
         
-    }
-    else
-    {
-        const data = {
-            "type":"minScore"
-        };
+//     }
+//     else
+//     {
+//         const data = {
+//             "type":"minScore"
+//         };
     
-    }
+//     }
     
 
-    sendStatRequest(data); 
-}
+//     sendStatRequest(data); 
+// }
 
 function min()
 {

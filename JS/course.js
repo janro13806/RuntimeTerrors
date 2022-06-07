@@ -29,13 +29,14 @@ window.addEventListener("load", function(){
 
 function updateCourse()
 {
-    //Create data object based on which update option is selected
-   
+    var courseID=document.getElementById("cid_input").value;
+    var length=document.getElementById("length_input").value;
     const data = {
         "type":"uCourse",
-        "length":updateInput,
-        "course_id": idInput
+        "length":length,
+        "course_id": courseID
     };
+    console.log(data);
     
     
     sendRequest(data); 
@@ -43,6 +44,7 @@ function updateCourse()
 
 function deleteCourse()
 {
+    var courseID=document.getElementById("delete_course").value;
     const data = {
         "type":"dCourse",
         "course_id": idInput
@@ -79,6 +81,8 @@ function sendRequest(data)
 
 function displayTable(resBody)
 {
+    table.innerHTML = "";
+
     //Parse the response object
     var resData = JSON.parse(resBody);
 
