@@ -293,4 +293,107 @@ function maxScore(){
     return $row['HighestScore'];
 }
 
+function AddPlayer($name,$surname,$rank,$nationality,$weight,$height,$age) {
+    $con = connect();
+    $getpersonidQuery = "SELECT person_id FROM person ORDER BY person_id DESC LIMIT 1";
+    $getpersonIdresult = $con->query($getpersonidQuery);
+    
+    $row = $getpersonIdresult->fetch_assoc();
+    $newpersonid = $row["person_id"] + 1;
+
+    $getplayeridQuery = "SELECT player_id FROM player ORDER BY player_id DESC LIMIT 1";
+    $getplayerIdresult = $con->query($getplayeridQuery);
+    
+    $row = $getplayerIdresult->fetch_assoc();
+    $newplayerid = $row["player_id"] + 1;
+
+    $query1 = "INSERT INTO person VALUES('$newpersonid','$name','$surname',
+    '$nationality','$weight','$height','$age')";
+    $query2= "INSERT INTO player VALUES('$newpersonid','$newplayerid','$rank')";
+
+    if($con->query($query1) && $con->query($query2)){
+        return getPlayer();
+    }else{
+        return false;
+    }
+}
+
+function topthree($year) {
+    $con = connect();
+
+    //SELECT player_id, SUM(score) AS Total_Score FROM runtimeterrors_golf.round 
+    //WHERE tournament_id=2020 GROUP BY player_id ORDER BY Total_Score;
+    $index = 0; 
+    $query = "
+    SELECT player_id, SUM(score) AS Total_Score 
+    FROM round 
+    WHERE tournament_id='$year' GROUP BY player_id ORDER BY Total_Score
+    ";
+     
+    $queryresult = $con->query($query);
+    for ($i=0; $i < 3 ; $i++) { 
+        $row = $queryresult->fetch_assoc();
+
+        $assocArr[$index++] = array('player_id' => $row['player_id'], 
+        'Total_Score' => $row['Total_Score']);
+    }
+
+    return $assocArr;
+    
+}
+
+function avgScore() {
+    $con = connect();
+    
+    $index = 0;
+    $assocArr = array();  
+
+    for ($k=2022; $k >= 2018; $k--) { 
+        for ($i=1; $i <= 4; $i++) { 
+            $avgQuery = "SELECT AVG(score)
+            AS AverageScore
+            FROM round WHERE
+            round_nr = '$i' AND tournament_id = '$k' ";
+
+            $result = $con->query($avgQuery);
+            $row = $result->fetch_assoc();
+            
+            $assocArr[$index++] = array('AverageScore' => $row['AverageScore'], 'Year' => $k, 'Round' => $i);        
+        }
+    }
+
+    return $assocArr;
+}
+
+function FrontBackDistances(){
+    $con = connect();
+    
+    $getDistQuery = "SELECT distance FROM hole";
+    $queryresult = $con->query($getDistQuery);
+    
+    $index = 1;
+    $firstNine = 0;
+    for($i = 0; $i < 9; $i++)
+    {
+        $row = $queryresult->fetch_assoc();
+        $firstNine += $row['distance'];
+        $index++;
+    }
+
+    $backNine = 0;
+    for($i = 0; $i < 9; $i++)
+    {
+        $row = $queryresult->fetch_assoc();
+        $backNine += $row['distance'];
+        $index++;
+    }
+    
+    $assocArr = array(
+        "Front_Nine" => $firstNine,
+        "Back_Nine" => $backNine
+    );
+
+    return $assocArr;
+}
+
 ?>
