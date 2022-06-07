@@ -66,14 +66,13 @@ h4 {
     min-width: 20%;
     min-height: 100%;
     display: inline-block;
-    vertical-align:auto;
+    
     margin: 0 2%;
 }
 
 #playerContainer{
-    width:80%;
+    width: 80%;
     height: 40%;
-    
     margin: auto;
 }
 

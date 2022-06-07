@@ -31,14 +31,22 @@
 
       </tr>
       <tr>
-         <td>Alfreds Futterkiste</td>
-         <td>Maria Anders</td>
-         <td>Germany</td>
+         <td>1</td>
+         <td>Tiger</td>
+         <td>Woods</td>
+         <td>46</td>
+         <td>American</td>
+         <td>80kg</td>
+         <td>1.85m</td>
       </tr>
       <tr>
-         <td>Centro comercial Moctezuma</td>
-         <td>Francisco Chang</td>
-         <td>Mexico</td>
+         <td>2</td>
+         <td>Justin</td>
+         <td>Thomas</td>
+         <td>33</td>
+         <td>American</td>
+         <td>78kg</td>
+         <td>1.8m</td>
       </tr>
    </table> 
    <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -46,7 +54,7 @@
 
    <div id="playerContainer">
    <div id="deletePlayer" class="controls">
-   <button class="playerButton" type="button">Delete Player</button>
+   <button class="playerButton" type="button">Delete Player</button><br>
    <input type="text" placeholder="Player ID" name="name"/><br>
    </div>
    <div id="addPlayer" class="controls">
@@ -62,14 +70,14 @@
       </form>
    </div>
    <div id="changePlayer" class="controls">
-   <button class="playerButton" type="button">Change Attribute Value</button>
+   <button class="playerButton" type="button">Change Attribute Value</button><br>
    <input type="radio" name="gender" value="Weight"> Weight<br>
    <input type="radio" name="gender" value="Height"> Height<br>
    <input type="text" placeholder="Value" name="name"/><br>
    </div>
    </div>
 
-   <script src="JS/player.js"/></script>
+   <script src="JS/player.js"></script>
    <?php include_once 'footer.php' ?>
 
 </body>
