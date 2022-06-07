@@ -54,11 +54,11 @@
 
    <div id="playerContainer">
    <div id="deletePlayer" class="controls">
-   <button class="playerButton" type="button">Delete Player</button><br>
+   <button class="playerButton" type="button" id="delete">Delete Player</button><br>
    <input type="text" placeholder="Player ID" name="name"/><br>
    </div>
    <div id="addPlayer" class="controls">
-   <button class="playerButton" type="button">Add Player</button>
+   <button class="playerButton" type="button" id="add">Add Player</button>
    <form action="">
          <input type="text" placeholder="First Name" name="name"/><br>
          <input type="text" placeholder="Surname" name="name"/><br>
@@ -70,9 +70,9 @@
       </form>
    </div>
    <div id="changePlayer" class="controls">
-   <button class="playerButton" type="button">Change Attribute Value</button><br>
-   <input type="radio" name="gender" value="Weight"> Weight<br>
-   <input type="radio" name="gender" value="Height"> Height<br>
+   <button class="playerButton" type="button" id="update">Change Attribute Value</button><br>
+   <input type="radio" name="update_option" value="Weight"> Weight<br>
+   <input type="radio" name="update_option" value="Height"> Height<br>
    <input type="text" placeholder="Value" name="name"/><br>
    </div>
    </div>

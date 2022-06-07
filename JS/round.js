@@ -35,7 +35,7 @@ function addScore()
 {
     const data = {
         "type":"aScore",
-        "player_id": player_id,
+        "player_id": '"' + player_id + '"',
         "tournament_id": tournament_id,
         "round_nr": round_nr,
         "score": score,
