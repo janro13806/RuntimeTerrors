@@ -162,6 +162,7 @@ function displayStat(resBody)
 {
     var resData = JSON.parse(resBody);
 
+    console.log(resData);
     if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
