@@ -166,6 +166,20 @@ function response($success, $type, $message = "")
                 $FrontBackArr = FrontBackDistances();
                 response("Success!!!", $this->type, $FrontBackArr);
             }
+            else if ($this->type == 'aPlayer') {
+                $this->name = $this->requestData['name'];      
+                $this->surname = $this->requestData['surname'];      
+                $this->ranking = $this->requestData['ranking'];      
+                $this->nationality = $this->requestData['nationality'];      
+                $this->weight = $this->requestData['weight'];      
+                $this->height = $this->requestData['height'];      
+                $this->age = $this->requestData['age'];      
+
+                $newPlayerArr = AddPlayer($this->name, $this->surname, $this->ranking,$this->nationality,
+                $this->weight,$this->height, $this->age);
+
+                response("Success!!!", $this->type, $newPlayerArr);
+            }
             
         }
     }
