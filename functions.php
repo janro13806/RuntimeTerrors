@@ -293,4 +293,29 @@ function maxScore(){
     return $row['HighestScore'];
 }
 
+function AddPlayer($name,$surname,$rank,$nationality,$weight,$height,$age) {
+    $con = connect();
+    $getpersonidQuery = "SELECT person_id FROM person ORDER BY person_id DESC LIMIT 1";
+    $getpersonIdresult = $con->query($getpersonidQuery);
+    
+    $row = $getpersonIdresult->fetch_assoc();
+    $newpersonid = $row["person_id"] + 1;
+
+    $getplayeridQuery = "SELECT player_id FROM player ORDER BY player_id DESC LIMIT 1";
+    $getplayerIdresult = $con->query($getplayeridQuery);
+    
+    $row = $getplayerIdresult->fetch_assoc();
+    $newplayerid = $row["player_id"] + 1;
+
+    $query1 = "INSERT INTO person VALUES('$newpersonid','$name','$surname',
+    '$nationality','$weight','$height','$age')";
+    $query2= "INSERT INTO person VALUES('$newpersonid','$newplayerid','$rank')";
+
+    if($con->query($query1) && $con->query($query2)){
+        return getPlayer();
+    }else{
+        return false;
+    }
+}
+
 ?>
