@@ -44,10 +44,11 @@ function updateCourse()
 
 function deleteCourse()
 {
-    var courseID=document.getElementById("delete_course").value;
+    var courseID=document.getElementById("cid_input").value;
+    // var courseID=document.getElementById("delete_course").value;
     const data = {
         "type":"dCourse",
-        "course_id": idInput
+        "course_id": courseID
     };
 
     sendRequest(data); 

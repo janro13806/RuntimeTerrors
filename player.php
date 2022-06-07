@@ -70,6 +70,7 @@
          <input type="text" placeholder="First Name" id="playerName"/><br>
          <input type="text" placeholder="Surname" id="playerSurname"/><br>
          <input type="text" placeholder="Ranking" id="playerRanking"/><br>
+         <input type="text" placeholder="Age" id="playerAge"/><br>
          <input type="text" placeholder="Nationality" id="playerNationality"/><br>
          <input type="text" placeholder="Weight" id="playerWeight"/><br>
          <input type="text" placeholder="Height" id="playerHeight"> <br><br>

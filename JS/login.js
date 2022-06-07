@@ -24,6 +24,7 @@ function sendRequest(data)
         {
             var res = xhttpr.responseText;
             console.log(res);
+            processLogin(res);
         }
     });
 
@@ -35,4 +36,23 @@ function sendRequest(data)
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
+}
+
+function processLogin(resBody)
+{
+    var resData = JSON.parse(resBody);
+
+    console.log(resData);
+    if (resData.success == "Success!!!")
+    {
+        //Parse the data part of the response object
+        var arrData = resData.message;
+
+
+
+
+        var msgBox = document.getElementById("loginMsg");
+        msgBox.innerText = "Your login was successful";
+        
+    }
 }
