@@ -158,7 +158,7 @@ function response($success, $type, $message = "")
                 $TopThreeArr = topthree($this->year);
                 response("Success!!!", $this->type, $TopThreeArr);
             }
-            else if ($this->type == 'gAverageScore ') {
+            else if ($this->type == 'gAverageScore') {
                 $AvgArr = avgScore();
                 response("Success!!!", $this->type, $AvgArr);
             }

@@ -373,22 +373,24 @@ function FrontBackDistances(){
     
     $index = 1;
     $firstNine = 0;
-    while($row = $queryresult->fetch_assoc() && $index <= 9)
+    for($i = 0; $i < 9; $i++)
     {
+        $row = $queryresult->fetch_assoc();
         $firstNine += $row['distance'];
         $index++;
     }
 
     $backNine = 0;
-    while($row = $queryresult->fetch_assoc() && $index <= 18)
+    for($i = 0; $i < 9; $i++)
     {
-        $backNine['distance'];
+        $row = $queryresult->fetch_assoc();
+        $backNine += $row['distance'];
         $index++;
     }
     
     $assocArr = array(
-        "First_Nine" => $firstNine,
-        "Last_Nine" => $backNine
+        "Front_Nine" => $firstNine,
+        "Back_Nine" => $backNine
     );
 
     return $assocArr;
