@@ -43,7 +43,7 @@ function response($success, $type, $message = "")
                 $con = connect();
                 //read from database..
 
-                $query = "SELECT * FROM users WHERE userName = '$name' AND userPassword = '$pass' limit 1";
+                $query = "SELECT * FROM users WHERE email = '$name' AND password = '$pass' limit 1";
                 $result = mysqli_query($con, $query); 
                 
                 
@@ -51,7 +51,7 @@ function response($success, $type, $message = "")
                 if ($result && mysqli_num_rows($result) > 0) {
                     //Fetch the data from the found user
                     $user_data = mysqli_fetch_assoc($result);
-                    $_SESSION['userName'] = $user_data['userName'];
+                    $_SESSION['userName'] = $user_data['email'];
                     response("Success!!!", $this->type ,$_SESSION['userName']);
                     die();
                 }
