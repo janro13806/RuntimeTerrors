@@ -1,9 +1,9 @@
 //GET COMPONENTS FROM WITH DOM
 //Get the buttons
-var deleteBtn = document.getElementById("delete");
+var deleteBtn = document.getElementById("deleteButton");
 deleteBtn.addEventListener("click", deletePlayer());
 
-var updateBtn = document.getElementById("update");
+var updateBtn = document.getElementById("changeButton");
 deleteBtn.addEventListener("click", updatePlayer());
 
 //Get the inputs
