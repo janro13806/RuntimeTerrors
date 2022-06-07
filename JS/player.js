@@ -83,7 +83,7 @@ function weight()
 
 function deletePlayer()
 {
-    var idInput = document.getElementById("id_input");
+    var idInput = document.getElementById("id_input").value;
     const data = {
         "type":"dPlayer",
         "player_id": idInput
@@ -106,6 +106,7 @@ function addPlayer()
     var name = document.getElementById("playerName").value;
     var surname = document.getElementById("playerSurname").value;
     var ranking = document.getElementById("playerRanking").value;
+    var age = document.getElementById("playerAge").value;
     var nationality = document.getElementById("playerNationality").value;
     var weight = document.getElementById("playerWeight").value;
     var height = document.getElementById("playerHeight").value;

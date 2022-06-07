@@ -45,7 +45,7 @@
    <div class="controls">
       <input type="text" placeholder="Course ID" id="cid_input"/><br>
       <input type="text" placeholder="Length" id="length_input"/><br>
-      <button class="playerButton" type="button" id="delete_course" onclick="delete_course()">Delete course</button>
+      <button class="playerButton" type="button" id="delete_course" onclick="deleteCourse()">Delete course</button>
       <button class="playerButton" type="button" id="update_course" onclick="updateCourse()">Update course</button>
       
    </div>

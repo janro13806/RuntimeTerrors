@@ -30,6 +30,10 @@
     </div>
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
+   <div id="loginResult">
+      <p id="loginMsg"></p>
+      <a href="player.php" id="successLink">Go to Home Page</a>
+   </div>
 
    <script src="JS/login.js"></script>
    <?php include_once 'footer.php' ?>
