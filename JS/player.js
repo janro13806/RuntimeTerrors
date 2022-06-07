@@ -109,6 +109,9 @@ function addPlayer()
     var nationality = document.getElementById("playerNationality").value;
     var weight = document.getElementById("playerWeight").value;
     var height = document.getElementById("playerHeight").value;
+
+    
+
     const data = {
         "type":"aPlayer",
         "name":name,
@@ -118,6 +121,7 @@ function addPlayer()
         "weight":weight,
         "height": height
     };
+    console.log(data);
 
     sendRequest(data); 
 }
@@ -197,33 +201,7 @@ function displayTable(resBody)
             tr.appendChild(td8);
 
             table.appendChild(tr);
-
-            console.log("Beers Tomorrow!!!");
-            // console.log(item.Player_ID);
-
-
-            // tableText += "<tr>";
-
-            // tableText += "<td>" +  + "</td>";
-            // tableText += "<td>" + item.Rank + "</td>";  //Should probably add a table heading for the rank
-            // tableText += "<td>" + item. + "</td>";
-            // tableText += "<td>" + item. + "</td>";
-            // tableText += "<td>" + item. + "</td>";
-            // tableText += "<td>" + item. + "</td>";
-            // tableText += "<td>" + item.Weight + "</td>";
-            // tableText += "<td>" + item.Height + "</td>";
-
-            // tableText += "</tr>";
-        }
-
-        // tableText += "</table>";
-
-
-        //Add the contents to the table
-        // console.log(tableText);
-        // table.innerHtml = "";
-        // table.innerHtml += tableText;
-        
+        }    
     }
 }
 

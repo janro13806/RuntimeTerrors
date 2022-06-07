@@ -13,7 +13,7 @@
    <br><br><br>
    <div id="main">
    <table >
-      <thead>
+      <thead id = "dataTableHead">
          <tr>
             <th>ID</th>
             <th>Tournament</th>
@@ -38,25 +38,33 @@
          </tr>
       </tbody>
       
+      <!-- <table>
+         <thead id = "dataTableHeadAvg">
+
+         </thead>
+         <tbody id = "dataTableAvg">
+
+         </tbody>
+      </table> -->
+      
    </table> 
    <br><br><br><br><br><br><br><br><br><br><br><br>
-
-   <div class="controls">
-      <h3 id="top3Msg"></h3>
-      <ul id="top3players">
-         
-      </ul>
-      <input type="text" placeholder="Year" id="year_input"/><br>
-      <button class="playerButton" type="button" id="top3" onclick="top3()">Top 3 Players</button>
-      <button class="playerButton" type="button" id="round_avg" onclick="roundAverage()">Round Average</button>
-      <button class="playerButton" type="button" id="first_last_dist" onclick="firstLastDist()">First 9 & Last 9 distances</button>
-   </div>
 
    <!-- Buttons -->
    <!-- Top 3 players -->
    <!-- Average Score per round - returns all rounds but grouped and average added-->
    <!-- First 9 & Last 9 distance -->
 
+   </div>
+   <div class="controls">
+      <h3 id="top3Msg"></h3>
+      <ol id="top3players">
+         
+      </ol>
+      <input type="text" placeholder="Year" id="year_input"/><br>
+      <button class="playerButton" type="button" id="top3" onclick="top3()">Top 3 Players</button>
+      <button class="playerButton" type="button" id="round_avg" onclick="roundAverage()">Round Average</button>
+      <button class="playerButton" type="button" id="first_last_dist" onclick="firstLastDist()">First 9 & Last 9 distances</button>
    </div>
     <div id="footer">
 				<?php include 'footer.php';?>
