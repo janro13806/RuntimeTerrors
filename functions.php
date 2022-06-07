@@ -2,10 +2,12 @@
 //This is the functions file.
 
 //connect to db
-include "config.php";
+include_once "config.php";
+
 
 //get the players of the tournament
 function getPlayer() {
+    $con = connect();
     $query = "
     SELECT p.person_id AS Person_id ,p.name AS Name,p.surname AS Surname,
     pl.player_id AS Player_ID,p.nationality AS Nationality,
@@ -18,7 +20,7 @@ function getPlayer() {
     //Code to build assoc array
     $index = 0;
     $assocArr = [];
-    while($row = fetch_assoc($queryresult)){
+    while($row = $queryresult->fetch_assoc()){
        $assocArr[$index++] = array("Person_id" => $row["Person_id"],"Name" => $row["Name"]  
     ,"Surname" => $row["Surname"], "Player_ID" => $row["Player_ID"], 
     "Nationality" => $row["Nationality"], "Weight" => $row["Weight"], 
@@ -30,6 +32,7 @@ function getPlayer() {
 
 //get the course
 function getCourse(){
+    $con = connect();
     $query = "
     SELECT *
     FROM course";
@@ -38,7 +41,7 @@ function getCourse(){
     //Code to build assoc array
     $index = 0;
     $assocArr = [];
-    while($row = fetch_assoc($queryresult))
+    while($row = $queryresult->fetch_assoc())
     {
         $assocArr[$index++] = array(
             "Course_Id" => $row["course_id"],
@@ -54,6 +57,7 @@ function getCourse(){
 
 //get the holes of the course
 function getHoles(){
+    $con = connect();
     $query = "
     SELECT *
     FROM hole";
@@ -62,14 +66,14 @@ function getHoles(){
      //Code to build assoc array
      $index = 0;
      $assocArr = [];
-     while($row = fetch_assoc($queryresult))
+     while($row = $queryresult->fetch_assoc())
      {
          $assocArr[$index++] = array(
              "Hole_nr" => $row["hole_nr"],
              "Distance" => $row["distance"],
              "Par" => $row["par"],
              "Num_Bunkers" => $row["num_bunkers"],
-             "Stroke_Difficulty" => $row["stroke_difficulty"]
+             "Name" => $row["hole_name"],
              "Course_id" => $row["course_id"]
          );
      }
@@ -79,6 +83,7 @@ function getHoles(){
 
 //get the rounds 
 function getRounds(){
+    $con = connect();
     $query = "
     SELECT *
     FROM round";
@@ -87,7 +92,7 @@ function getRounds(){
          //Code to build assoc array
          $index = 0;
          $assocArr = [];
-         while($row = fetch_assoc($queryresult))
+         while($row = $queryresult->fetch_assoc())
          {
              $assocArr[$index++] = array(
                 "Tournament_id" => $row["tournament_id"],
@@ -101,6 +106,7 @@ function getRounds(){
 
 //get statistics table
 function getStatistics(){
+    $con = connect();
     $query = "
     SELECT *
     FROM statistic";
@@ -108,14 +114,14 @@ function getStatistics(){
 
     $index = 0;
     $assocArr = [];
-    while($row = fetch_assoc($queryresult))
+    while($row = $queryresult->fetch_assoc())
     {
         $assocArr[$index++] = array(
             "Statistic_Id" => $row["statistic_id"],
             "Tournament_Id" => $row["tournament_id"],
             "Round_Nr" => $row["round_nr"],
             "Score" => $row["score"],
-            "Pars" => $row["Pars"],
+            "Pars" => $row["pars"],
             "Birdies" => $row["birdies"],
             "Bogeys" => $row["bogeys"],
         );
@@ -125,6 +131,7 @@ function getStatistics(){
 
 //get the tournament
 function getTournaments(){
+    $con = connect();
     $query = "
     SELECT *
     FROM tournament";
@@ -132,7 +139,7 @@ function getTournaments(){
 
     $index = 0;
     $assocArr = [];
-    while($row = fetch_assoc($queryresult))
+    while($row = $queryresult->fetch_assoc())
     {
         $assocArr[$index++] = array(
             "Tournament_Id" => $row["tournament_id"],
@@ -150,9 +157,10 @@ function getTournaments(){
 //================================================================================
 
 function deletePlayer($playerid){
+    $con = connect();
     $query = "
     DELETE FROM player
-    WHERE player_id="+$playerid+"";
+    WHERE player_id='$playerid'";
     
     if ($con->query($query)) {
         return getPlayer();
@@ -165,13 +173,14 @@ function deletePlayer($playerid){
 }
 
 function updatePlayerWeight($player_id,$weight){
+    $con = connect();
     $query = "
     UPDATE person
-    SET weight="+$weight+"
+    SET weight='$weight'
     WHERE person_id = ( 
         SELECT person_id
         FROM player
-        WHERE player_id="+$player_id+")";
+        WHERE player_id='$player_id')";
 
     if ($con->query($query)) {
         return getPlayer();
@@ -182,13 +191,14 @@ function updatePlayerWeight($player_id,$weight){
 }
 
 function updatePlayerAge($player_id,$age){
+    $con = connect();
     $query = "
     UPDATE person
-    SET age="+$age+"
+    SET age='$age'
     WHERE person_id = ( 
         SELECT person_id
         FROM player
-        WHERE player_id="+$player_id+")";
+        WHERE player_id='$player_id')";
 
     if ($con->query($query)) {
         return getPlayer();
@@ -199,10 +209,11 @@ function updatePlayerAge($player_id,$age){
 }
 
 function updateCourse($length,$course_id){
+    $con = connect();
     $query = "
     UPDATE FROM player
-    SET length="+$length+"
-    WHERE course_id="+$course_id+"";
+    SET length='$length'
+    WHERE course_id='$course_id'";
 
     if ($con->query($query)) {
         return getCourse();
@@ -213,9 +224,10 @@ function updateCourse($length,$course_id){
 }
 
 function deleteCourse($course_id){
+    $con = connect();
     $query = "
     DELETE FROM course
-    WHERE course="+$course_id+"";
+    WHERE course_id='$course_id'";
 
     if ($con->query($query)) {
         return getCourse();
@@ -225,28 +237,29 @@ function deleteCourse($course_id){
     }
 }
 
-function addScore($player_id, $tournament_id, $round_nr, $score, $pars, $birdies, $bogeys){
-    $getStatIdQuery = "SELECT statistic_id FROM statistic ORDER BY statistic_id DESC LIMIT 1";
-    $getStatIdResult = $con->($getStatIdQuery);
+// function addScore($player_id, $tournament_id, $round_nr, $score, $pars, $birdies, $bogeys){
+//     $getStatIdQuery = "SELECT statistic_id FROM statistic ORDER BY statistic_id DESC LIMIT 1";
+//     $getStatIdResult = $con->query($getStatIdQuery);
     
-    $row = $getStatIdResult->fetch_assoc();
-    $newStatId = $row["statistic_id"] + 1;
+//     $row = $getStatIdResult->fetch_assoc();
+//     $newStatId = $row["statistic_id"] + 1;
 
-    $query = "
-        INSERT INTO round VALUES("+ $player_id +", "+ $tournament_id +", "+ $round_nr +", "+ $score +");
-        INSERT INTO statistic VALUES("$newStatId" ,"+ $player_id +", "+ $tournament_id +", "+ $round_nr +", "+ $score +", "+ $pars +","+ $birdies +", "+ $bogeys +");
-        INSERT INTO round_statistic VALUES("$newStatId","+ $player_id +", "+ $round_nr +");
-    ";
+//     $query = "
+//         INSERT INTO round VALUES("+ $player_id +", "+ $tournament_id +", "+ $round_nr +", "+ $score +");
+//         INSERT INTO statistic VALUES("+ $newStatId +" ,"+ $player_id +", "+ $tournament_id +", "+ $round_nr +", "+ $score +", "+ $pars +","+ $birdies +", "+ $bogeys +");
+//         INSERT INTO round_statistic VALUES("+ $newStatId +","+ $player_id +", "+ $round_nr +");
+//     ";
 
-    if($con->query($query)){
-        return getRounds(); //possibly getStatistics() depending on the display page
-    }else{
-        return false;
-    }
-}
+//     if($con->query($query)){
+//         return getRounds(); //possibly getStatistics() depending on the display page
+//     }else{
+//         return false;
+//     }
+// }
 
 
 function countPlayers(){
+    $con = connect();
     $query = "
     SELECT COUNT(player_id)
     AS PlayerCount
@@ -259,6 +272,7 @@ function countPlayers(){
 
 
 function minScore(){
+    $con = connect();
     $query = "
     SELECT MIN(Score)
     AS LowestScore
@@ -270,6 +284,7 @@ function minScore(){
 }
 
 function maxScore(){
+    $con = connect();
     $query = "
     SELECT MAX(Score)
     AS HighestScore
