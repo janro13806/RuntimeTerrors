@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" href="style.css" />
+</head>
 <?php
 
     // Nav bar that gets included on all pages

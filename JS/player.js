@@ -34,7 +34,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "age":updateInput,
-            "person_id": idInput
+            "player_id": idInput
         };
     }
     else
@@ -42,7 +42,7 @@ function updatePlayer()
         const data = {
             "type":"uPlayer",
             "weight":updateInput,
-            "person_id": idInput
+            "player_id": idInput
         };
     }
     
@@ -53,7 +53,7 @@ function deletePlayer()
 {
     const data = {
         "type":"dPlayer",
-        "person_id": idInput
+        "player_id": idInput
     };
 
     sendRequest(data); 
@@ -65,7 +65,7 @@ function countPlayers()
         "type":"cPlayers"
     };
 
-    sendRequest(data);
+    sendCountRequest(data);
 }
 
 
