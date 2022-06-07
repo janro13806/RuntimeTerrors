@@ -167,9 +167,11 @@ function displayStat(resBody)
         //Parse the data part of the response object
         var arrData = JSON.parse(resData.message);
 
+        var message = "Value min or max depending on response";
 
         //Display the stat in one of the html objects
-        
+        var msgBox = document.getElementById("statMsg");
+        msgBox.innerText = message;
 
     }
 }

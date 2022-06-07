@@ -32,6 +32,33 @@
    </table> 
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
+   
+   <div id="controls">
+   <button class="playerButton" type="button" id="add">Add Score</button>
+   <form action="">
+         <input type="text" placeholder="Round Number" id="round_nr"/><br>
+         <input type="text" placeholder="Player ID" id="player_id"/><br>
+         <input type="text" placeholder="Tournament ID" id="tournament_id"/><br>
+         <input type="text" placeholder="Score" id="score"/><br>
+         <input type="text" placeholder="Pars" id="pars"/><br>
+         <input type="text" placeholder="Birdies" id="birdies"> <br>
+         <input type="text" placeholder="Bogeys" id="bogeys"> <br><br>
+         <!-- <input type="submit" value="Submit"> -->
+      </form>
+
+      <div id="statistics">
+         <p id="statMsg">Message goes here</p>
+         
+         
+         <input type="radio" name="statOption" id="stat_option" value="Minimum" checked>
+         <label for="">Minimum Score</label> <br>
+         
+         <input type="radio" name="statOption" id="stat_option" value="Maximum" checked>
+         <label for="">Maximum Score</label> <br>
+
+         <button id="stat">Show Result</button>
+      </div>
+   </div>
     <div id="footer">
 				<?php include 'footer.php';?>
 
