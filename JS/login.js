@@ -47,12 +47,13 @@ function processLogin(resBody)
     {
         //Parse the data part of the response object
         var arrData = resData.message;
-
-
-
+    
+        var txt = "<a href='player.php'>Go to Home </a>";
 
         var msgBox = document.getElementById("loginMsg");
         msgBox.innerText = "Your login was successful";
+        var loginDiv = document.getElementById("loginResult");
+        loginDiv.innerHTML += txt;
         
     }
 }
