@@ -114,8 +114,8 @@ function response($success, $type, $message = "")
                 $this->birdies = $this->requestData['birdies'];
                 $this->bogeys = $this->requestData['bogeys'];
 
-                // $newScoreArr = addScore($this->player_id, $this->tournament_id, $this->round_nr, $this->score, $this->pars, $this->birdies, $this->bogeys);
-                // response("Success!!!", $this->type, $newScoreArr);     
+                $newScoreArr = addScore($this->player_id, $this->tournament_id, $this->round_nr, $this->score, $this->pars, $this->birdies, $this->bogeys);
+                response("Success!!!", $this->type, $newScoreArr);     
             }
             else if ($this->type == 'cPlayers') {
                 $numPlayers = countPlayers();

@@ -8,16 +8,10 @@ include_once "config.php";
 //get the players of the tournament
 function getPlayer() {
     $con = connect();
-    // $query = "
-    // SELECT p.person_id AS Person_id ,p.name AS Name,p.surname AS Surname,
-    // pl.player_id AS Player_ID,p.nationality AS Nationality,
-    // p.weight AS Weight,p.height AS Height,
-    // p.age AS Age,pl.rank AS Rank
-    // FROM person p, player pl";
     $query = "SELECT * FROM player pl
             JOIN person p ON p.person_id = pl.person_id";
     $queryresult = $con->query($query);
-    
+
     //Code to build assoc array
     $index = 0;
     $assocArr = [];
@@ -175,8 +169,6 @@ function deletePlayer($playerid){
     else {
         return false;
     }
-
-    
 }
 
 function updatePlayerWeight($player_id,$weight){
@@ -218,7 +210,7 @@ function updatePlayerAge($player_id,$age){
 function updateCourse($length,$course_id){
     $con = connect();
     $query = "
-    UPDATE FROM player
+    UPDATE course
     SET length='$length'
     WHERE course_id='$course_id'";
 
@@ -244,25 +236,24 @@ function deleteCourse($course_id){
     }
 }
 
-// function addScore($player_id, $tournament_id, $round_nr, $score, $pars, $birdies, $bogeys){
-//     $getStatIdQuery = "SELECT statistic_id FROM statistic ORDER BY statistic_id DESC LIMIT 1";
-//     $getStatIdResult = $con->query($getStatIdQuery);
+function addScore($player_id, $tournament_id, $round_nr, $score, $pars, $birdies, $bogeys){
+    $con = connect();
+    $getStatIdQuery = "SELECT statistic_id FROM statistic ORDER BY statistic_id DESC LIMIT 1";
+    $getStatIdResult = $con->query($getStatIdQuery);
     
-//     $row = $getStatIdResult->fetch_assoc();
-//     $newStatId = $row["statistic_id"] + 1;
+    $row = $getStatIdResult->fetch_assoc();
+    $newStatId = $row["statistic_id"] + 1;
 
-//     $query = "
-//         INSERT INTO round VALUES("+ $player_id +", "+ $tournament_id +", "+ $round_nr +", "+ $score +");
-//         INSERT INTO statistic VALUES("+ $newStatId +" ,"+ $player_id +", "+ $tournament_id +", "+ $round_nr +", "+ $score +", "+ $pars +","+ $birdies +", "+ $bogeys +");
-//         INSERT INTO round_statistic VALUES("+ $newStatId +","+ $player_id +", "+ $round_nr +");
-//     ";
+    $query1 = "INSERT INTO round VALUES('$round_nr', '$player_id', '$tournament_id', '$score');";
+    $query2 = "INSERT INTO statistic VALUES('$newStatId', '$tournament_id', '$round_nr', '$score', '$pars', '$birdies', '$bogeys');";
+    $query3 = "INSERT INTO round_statistic VALUES('$player_id', '$newStatId', '$round_nr');";
 
-//     if($con->query($query)){
-//         return getRounds(); //possibly getStatistics() depending on the display page
-//     }else{
-//         return false;
-//     }
-// }
+    if($con->query($query1) && $con->query($query2) && $con->query($query3)){
+        return getRounds();
+    }else{
+        return false;
+    }
+}
 
 
 function countPlayers(){
