@@ -15,6 +15,9 @@
                     <li><a  href="statistic.php">Statistics<span>Go to the "Statistics" page</span></a></li>
                     <li><a  href="tournament.php">Tournaments<span>Go to the "Tournaments" page</span></a></li>
                     <li><a  href="course.php">Course<span>Go to the "Course" page</span></a></li>
+
+                    <li style="float: right"><a  href="login.php">Login<span>Log in to the web page</span></a></li>
+
                 </ul>
             </div>
         ';

@@ -138,3 +138,9 @@ a:hover {
     font-size: smaller;
   }
 
+  /* Set ol width for statistics */
+  ol{
+    width: fit-content;
+    margin: auto;
+  }
+

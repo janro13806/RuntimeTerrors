@@ -41,6 +41,19 @@ h4 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#login{
+font-family: Quicksand;
+    border: 5px solid rgb(0, 103, 71);;
+    background: white;
+    margin: 25px auto;
+    padding: 10px 10px;
+    text-align: center;
+    box-shadow: -4px -3px 45px 21px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    width: 70%;
+    height: 70%;
+}
+
 #main {
     font-family: Quicksand;
     border: 5px solid grey;
@@ -53,6 +66,7 @@ h4 {
     width: 90%;
     height: 60%;
     overflow: scroll;
+    max-height: 500px;
 }
 
 .controls {
@@ -66,8 +80,13 @@ h4 {
     min-width: 20%;
     min-height: 100%;
     display: inline-block;
-    
     margin: 0 2%;
+}
+
+.controls input{
+    padding: 5px;
+    margin: 2px auto;
+    border-radius: 200px;
 }
 
 #playerContainer{
@@ -119,6 +138,10 @@ table, th, td {
     border-collapse: collapse;
   }
 
-#dataTable{
+table{
     width : 100%;
 }
+
+/* #dataTable{
+    
+} */

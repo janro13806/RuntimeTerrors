@@ -19,9 +19,11 @@
    </div>
    <br><br><br>
    <div id="main">
-   <table id = "dataTable">
+   <table >
+      <thead>
       <tr>
          <th>ID</th>
+         <th>Rank</th>
          <th>Name</th>
          <th>Surname</th>
          <th>Age</th>
@@ -30,6 +32,9 @@
          <th>Height</th>
 
       </tr>
+      </thead>
+      <tbody id = "dataTable">
+      
       <tr>
          <td>1</td>
          <td>Tiger</td>
@@ -48,32 +53,40 @@
          <td>78kg</td>
          <td>1.8m</td>
       </tr>
+      </tbody>
+      
    </table> 
    <br><br><br><br><br><br><br><br><br><br><br><br>
    </div>
 
    <div id="playerContainer">
    <div id="deletePlayer" class="controls">
-   <button class="playerButton" type="button">Delete Player</button><br>
-   <input type="text" placeholder="Player ID" name="name"/><br>
+   <button class="playerButton" type="button" id="deleteButton" onclick="deletePlayer()">Delete Player</button><br>
+   <input type="text" placeholder="Player ID" name="name" id="id_input"/><br>
    </div>
    <div id="addPlayer" class="controls">
-   <button class="playerButton" type="button">Add Player</button>
+   <button class="playerButton" type="button" id="add" onclick="addPlayer()">Add Player</button>
    <form action="">
-         <input type="text" placeholder="First Name" name="name"/><br>
-         <input type="text" placeholder="Surname" name="name"/><br>
-         <input type="text" placeholder="Ranking" name="name"/><br>
-         <input type="text" placeholder="Nationality" name="name"/><br>
-         <input type="text" placeholder="Weight" name="name"/><br>
-         <input type="text" placeholder="Height" name="password"> <br><br>
-         <input type="submit" value="Submit">
+         <input type="text" placeholder="First Name" id="playerName"/><br>
+         <input type="text" placeholder="Surname" id="playerSurname"/><br>
+         <input type="text" placeholder="Ranking" id="playerRanking"/><br>
+         <input type="text" placeholder="Age" id="playerAge"/><br>
+         <input type="text" placeholder="Nationality" id="playerNationality"/><br>
+         <input type="text" placeholder="Weight" id="playerWeight"/><br>
+         <input type="text" placeholder="Height" id="playerHeight"> <br><br>
       </form>
    </div>
    <div id="changePlayer" class="controls">
-   <button class="playerButton" type="button">Change Attribute Value</button><br>
-   <input type="radio" name="gender" value="Weight"> Weight<br>
-   <input type="radio" name="gender" value="Height"> Height<br>
-   <input type="text" placeholder="Value" name="name"/><br>
+   <h3>Change Attribute Value</h3><br>
+   <p id="countMsg"></p>
+   <button class="playerButton" type="button" id="weight" onclick="weight()">Weight</button>
+   <button class="playerButton" type="button" id="age" onclick="age()">Age</button>
+   <!-- <input type="radio" name="update_option" value="Weight" id="weight_option" checked> Weight<br>
+   <input type="radio" name="update_option" value="Height" id="age_option"> Height<br> -->
+   <input type="text" placeholder="Value" name="name" id="update_value"/><br>
+   <input type="text" placeholder="Player ID" name="name" id="id_input2"/><br>
+
+   <button class="playerButton" type="button" id="deleteButton" onclick="countPlayers()">Count Players</button><br>
    </div>
    </div>
 

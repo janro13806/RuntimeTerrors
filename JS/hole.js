@@ -2,6 +2,7 @@
 
 //Get the table
 var table = document.getElementById("dataTable");
+table.innerHTML = "";
 
 window.addEventListener("load", function(){
 
@@ -30,7 +31,7 @@ function sendRequest(data)
     });
 
     //Set the method and the URL
-    xhttpr.open("POST", "../api.php");
+    xhttpr.open("POST", "./api.php");
 
     //Send the request with data as the body
     xhttpr.send(JSON.stringify(data));
@@ -41,33 +42,61 @@ function displayTable(resBody)
     //Parse the response object
     var resData = JSON.parse(resBody);
 
-    if (resData.success == "success")
+    if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
-        var arrData = JSON.parse(resData.message);
+        // var arrData = JSON.parse(resData.message);
 
-        var tableText = "";
+        var arrData=resData.message
+        console.log(arrData);
+        // var tableText = "";
 
         //Loop through the array
         for (let i = 0; i < arrData.length; i++) {
             const item = arrData[i];
 
-            tableText += "<tr>";
+            tr = document.createElement('tr');
+            td1 = document.createElement('td');
+            td2 = document.createElement('td');
+            td3 = document.createElement('td');
+            td4 = document.createElement('td');
+            td5 = document.createElement('td');
+            td6 = document.createElement('td');
 
-            tableText += "<td>" + item.hole_nr + "</td>";
-            tableText += "<td>" + item.distance + "</td>"; 
-            tableText += "<td>" + item.par + "</td>";
-            tableText += "<td>" + item.num_bunkers + "</td>";
-            tableText += "<td>" + item.stroke_difficulty + "</td>";
-            tableText += "<td>" + item.course_id + "</td>";
+            td1.textContent = item.Hole_nr;
 
-            tableText += "</tr>";
+            td2.textContent = item.Name;
+            td3.textContent = item.Course_id;
+            td4.textContent = item.Distance;
+            td5.textContent = item.Par;
+            td6.textContent = item.Num_Bunkers;
+           
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tr.appendChild(td6);
+
+
+            table.appendChild(tr);
+
+            // tableText += "<tr>";
+
+            // tableText += "<td>" + item.hole_nr + "</td>";
+            // tableText += "<td>" + item.distance + "</td>"; 
+            // tableText += "<td>" + item.par + "</td>";
+            // tableText += "<td>" + item.num_bunkers + "</td>";
+            // tableText += "<td>" + item.stroke_difficulty + "</td>";
+            // tableText += "<td>" + item.course_id + "</td>";
+
+            // tableText += "</tr>";
         }
 
         // tableText += "</table>";
 
 
         //Add the contents to the table
-        table.innerHtml = tableText;
+        // table.innerHtml = tableText;
     }
 }
