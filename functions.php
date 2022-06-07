@@ -8,23 +8,30 @@ include_once "config.php";
 //get the players of the tournament
 function getPlayer() {
     $con = connect();
-    $query = "
-    SELECT p.person_id AS Person_id ,p.name AS Name,p.surname AS Surname,
-    pl.player_id AS Player_ID,p.nationality AS Nationality,
-    p.weight AS Weight,p.height AS Height,
-    p.age AS Age,pl.rank AS Rank
-    FROM person p, player pl";
+    // $query = "
+    // SELECT p.person_id AS Person_id ,p.name AS Name,p.surname AS Surname,
+    // pl.player_id AS Player_ID,p.nationality AS Nationality,
+    // p.weight AS Weight,p.height AS Height,
+    // p.age AS Age,pl.rank AS Rank
+    // FROM person p, player pl";
+    $query = "SELECT * FROM player pl
+            JOIN person p ON p.person_id = pl.person_id";
     $queryresult = $con->query($query);
-    $row = $queryresult->fetch_assoc();
-
+    
     //Code to build assoc array
     $index = 0;
     $assocArr = [];
+    
     while($row = $queryresult->fetch_assoc()){
-       $assocArr[$index++] = array("Person_id" => $row["Person_id"],"Name" => $row["Name"]  
-    ,"Surname" => $row["Surname"], "Player_ID" => $row["Player_ID"], 
-    "Nationality" => $row["Nationality"], "Weight" => $row["Weight"], 
-    "Height" => $row["Height"], "Age" => $row["Age"], "Rank" => $row["Rank"]); 
+       $assocArr[$index++] = array(
+        "Player_ID" => $row["player_id"], 
+        "Name" => $row["name"],
+        "Surname" => $row["surname"], 
+        "Nationality" => $row["nationality"], 
+        "Weight" => $row["weight"], 
+        "Height" => $row["height"], 
+        "Age" => $row["age"], 
+        "Rank" => $row["rank"]); 
     }
     
     return $assocArr;
