@@ -309,7 +309,7 @@ function AddPlayer($name,$surname,$rank,$nationality,$weight,$height,$age) {
 
     $query1 = "INSERT INTO person VALUES('$newpersonid','$name','$surname',
     '$nationality','$weight','$height','$age')";
-    $query2= "INSERT INTO player VALUES('$newpersonid','$newplayerid','$rank')";
+    $query2= "INSERT INTO player VALUES('$newplayerid','$newpersonid','$rank')";
 
     if($con->query($query1) && $con->query($query2)){
         return getPlayer();
