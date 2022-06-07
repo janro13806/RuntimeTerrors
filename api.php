@@ -153,6 +153,20 @@ function response($success, $type, $message = "")
                 $TournamentsArr = getTournaments();
                 response("Success!!!", $this->type, $TournamentsArr);
             }
+            else if ($this->type == 'gTopThree') {
+                $this->year = $this->requestData['year'];     
+                $TopThreeArr = topthree($this->year);
+                response("Success!!!", $this->type, $TopThreeArr);
+            }
+            else if ($this->type == 'gAverageScore ') {
+                $AvgArr = avgScore();
+                response("Success!!!", $this->type, $AvgArr);
+            }
+            else if ($this->type == 'gBackFrontNine') {
+                $FrontBackArr = FrontBackDistances();
+                response("Success!!!", $this->type, $FrontBackArr);
+            }
+            
         }
     }
 
