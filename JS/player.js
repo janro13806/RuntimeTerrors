@@ -118,6 +118,7 @@ function addPlayer()
         "name":name,
         "surname":surname,
         "ranking":ranking,
+        "age":age,
         "nationality":nationality,
         "weight":weight,
         "height": height
