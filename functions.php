@@ -18,7 +18,7 @@ function getPlayer() {
     //Code to build assoc array
     $index = 0;
     $assocArr = [];
-    while($row = fetch_assoc($queryresult)){
+    while($row = $queryresult->fetch_assoc()){
        $assocArr[$index++] = array("Person_id" => $row["Person_id"],"Name" => $row["Name"]  
     ,"Surname" => $row["Surname"], "Player_ID" => $row["Player_ID"], 
     "Nationality" => $row["Nationality"], "Weight" => $row["Weight"], 
@@ -62,7 +62,7 @@ function getHoles(){
      //Code to build assoc array
      $index = 0;
      $assocArr = [];
-     while($row = fetch_assoc($queryresult))
+     while($row = $queryresult->fetch_assoc())
      {
          $assocArr[$index++] = array(
              "Hole_nr" => $row["hole_nr"],
@@ -87,7 +87,7 @@ function getRounds(){
          //Code to build assoc array
          $index = 0;
          $assocArr = [];
-         while($row = fetch_assoc($queryresult))
+         while($row = $queryresult->fetch_assoc())
          {
              $assocArr[$index++] = array(
                 "Tournament_id" => $row["tournament_id"],
@@ -132,7 +132,7 @@ function getTournaments(){
 
     $index = 0;
     $assocArr = [];
-    while($row = fetch_assoc($queryresult))
+    while($row = $queryresult->fetch_assoc())
     {
         $assocArr[$index++] = array(
             "Tournament_Id" => $row["tournament_id"],
