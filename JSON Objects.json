@@ -1,0 +1,46 @@
+JSON objects for different requests
+
+
+PLAYER
+1. Add player
+
+{
+    "type":"",
+    "name":"",
+    "surname": "",
+    "nationality": "",
+    "weight": 0,
+    "height": 0,
+    "age":0,
+    "rank":0
+}
+
+2. Modify player age
+
+{
+    "type":"",
+    "player_id":0,
+    "age":0
+}
+
+3. Modify player weight
+
+{
+    "type":"",
+    "player_id":0,
+    "weight":0
+}
+
+4. DELETE player
+
+{
+    "type":"",
+    "player_id":0
+}
+
+
+
+
+
+
+

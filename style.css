@@ -125,7 +125,7 @@ a:hover {
   /* PAGE HEADERS */
   h1 {
     font-size: 50px;
-    margin-top: 0;
+    margin-top: -20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
@@ -136,4 +136,12 @@ a:hover {
     /* display: none; */
     color: black;
     font-size: smaller;
+  }
+
+  #footer{
+    float: right;
+    text-align: right;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    margin-top: 100px;
   }

@@ -4,7 +4,7 @@
 <?php
 
     // Nav bar that gets included on all pages
-    require_once('config.php');
+    // require_once('config.php');
         echo '
             <div class="web-nav-bar" >
                 <ul > 
