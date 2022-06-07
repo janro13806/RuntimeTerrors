@@ -71,8 +71,8 @@
    </div>
    <div id="changePlayer" class="controls">
    <button class="playerButton" type="button" id="changeButton">Change Attribute Value</button><br>
-   <button class="playerButton" type="button" id="weightBtn">Change Attribute Value</button>
-   <button class="playerButton" type="button" id="ageBtn">Change Attribute Value</button>
+   <button class="playerButton" type="button" id="min">Minimum Score</button>
+   <button class="playerButton" type="button" id="max">Maximum Score</button>
    <!-- <input type="radio" name="update_option" value="Weight" id="weight_option" checked> Weight<br>
    <input type="radio" name="update_option" value="Height" id="age_option"> Height<br> -->
    <input type="text" placeholder="Value" name="name" id="update_value"/><br>

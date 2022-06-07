@@ -1,14 +1,14 @@
 //GET COMPONENTS FROM WITH DOM
 //Get the buttons
-var deleteBtn = document.getElementById("deleteButton");
-deleteBtn.addEventListener("click", deletePlayer());
+// var deleteBtn = document.getElementById("deleteButton");
+// deleteBtn.addEventListener("click", deletePlayer());
 
-var updateBtn = document.getElementById("changeButton");
-deleteBtn.addEventListener("click", updatePlayer());
+// var updateBtn = document.getElementById("changeButton");
+// deleteBtn.addEventListener("click", updatePlayer());
 
-//Get the inputs
-var idInput = document.getElementById("id_input");
-var updateInput = document.getElementById("update_value").value;
+// //Get the inputs
+// var idInput = document.getElementById("id_input");
+// var updateInput = document.getElementById("update_value").value;
 
 
 // var weightOption = document.getElementById("weight_option");
@@ -17,6 +17,7 @@ var updateInput = document.getElementById("update_value").value;
 
 //Get the table
 var table = document.getElementById("dataTable");
+console.log(table);
 
 window.addEventListener("load", function(){
 
@@ -106,7 +107,10 @@ function displayTable(resBody)
     if (resData.success == "Success!!!")
     {
         //Parse the data part of the response object
-        var arrData = JSON.parse(resData.message);
+        console.log(resData.message);
+        // var arrData = JSON.parse(resData.message);
+
+        var arrData = resData.message;
 
         var tableText = "";
 
@@ -114,16 +118,17 @@ function displayTable(resBody)
         for (let i = 0; i < arrData.length; i++) {
             const item = arrData[i];
 
+            console.log(item.Player_ID);
             tableText += "<tr>";
 
-            tableText += "<td>" + item.player_id + "</td>";
-            tableText += "<td>" + item.rank + "</td>";  //Should probably add a table heading for the rank
-            tableText += "<td>" + item.name + "</td>";
-            tableText += "<td>" + item.surname + "</td>";
-            tableText += "<td>" + item.age + "</td>";
-            tableText += "<td>" + item.nationality + "</td>";
-            tableText += "<td>" + item.weight + "</td>";
-            tableText += "<td>" + item.height + "</td>";
+            tableText += "<td>" + item.Player_ID + "</td>";
+            tableText += "<td>" + item.Rank + "</td>";  //Should probably add a table heading for the rank
+            tableText += "<td>" + item.Name + "</td>";
+            tableText += "<td>" + item.Surname + "</td>";
+            tableText += "<td>" + item.Age + "</td>";
+            tableText += "<td>" + item.Nationality + "</td>";
+            tableText += "<td>" + item.Weight + "</td>";
+            tableText += "<td>" + item.Height + "</td>";
 
             tableText += "</tr>";
         }
@@ -132,6 +137,7 @@ function displayTable(resBody)
 
 
         //Add the contents to the table
+        console.log(tableText);
         table.innerHtml = tableText;
     }
 }
