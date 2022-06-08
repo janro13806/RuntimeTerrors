@@ -61,7 +61,6 @@ function displayTable(resBody)
             td2 = document.createElement('td');
             td3 = document.createElement('td');
             td4 = document.createElement('td');
-            td5 = document.createElement('td');
 
             td1.textContent = item.Tournament_Id;
             td2.textContent = item.Winner_Score;
@@ -72,7 +71,6 @@ function displayTable(resBody)
             tr.appendChild(td2);
             tr.appendChild(td3);
             tr.appendChild(td4);
-            tr.appendChild(td5);
 
             table.appendChild(tr);
 
